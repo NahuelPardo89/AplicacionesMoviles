@@ -3,7 +3,7 @@
 Api Web AMPA: https://github.com/NahuelPardo89/Proyecto-FullStack.git
 
 
-# AMPA Deportes - App Android 📱
+# AMPA Complejo deportivo - App Android 📱
 La aplicación oficial para el complejo deportivo AMPA. Con tu credencial digital, accede a las instalaciones, mantente al día con los torneos próximos, sigue rutinas de ejercicios y reserva tus espacios favoritos.
 
 ## Imagen de la app 
