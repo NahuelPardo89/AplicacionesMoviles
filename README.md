@@ -9,10 +9,10 @@ La aplicación oficial para el complejo deportivo AMPA. Con tu credencial digita
 ## Imagen de la app 
 
 ## Características 🌟
--Credencial Digital con QR: Tu acceso a las instalaciones en la palma de tu mano.
--Torneos Próximos: No te pierdas ningún torneo, consulta fechas, horarios y más.
--Rutinas de Ejercicios: Sigue las rutinas recomendadas por el complejo y mejora tu rendimiento.
--Reservas: Reserva canchas y otros espacios en el complejo con solo unos clics.
+- Credencial Digital con QR: Tu acceso a las instalaciones en la palma de tu mano.
+- Torneos Próximos: No te pierdas ningún torneo, consulta fechas, horarios y más.
+- Rutinas de Ejercicios: Sigue las rutinas recomendadas por el complejo y mejora tu rendimiento.
+- Reservas: Reserva canchas y otros espacios en el complejo con solo unos clics.
 ## Instalación 🛠️
 Clona el repositorio:
 bash
