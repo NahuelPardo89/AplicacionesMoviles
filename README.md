@@ -21,5 +21,4 @@ git clone https://github.com/NahuelPardo89/AplicacionesMoviles.git
 Abre el proyecto con Android Studio.
 Compila y ejecuta en tu dispositivo o emulador.
 ## Requisitos 📋
-Android Studio (Versión recomendada: X.XX)
-SDK Android (Versión recomendada: XX)
+Android Studio (Versión recomendada: Giraffe | 2022.3.1)
