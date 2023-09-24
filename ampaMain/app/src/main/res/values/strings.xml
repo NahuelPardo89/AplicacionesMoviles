@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ampaMain</string>
+    <string name="logo"> AMPA COMPLEJO DEPORTIVO </string>
+    <string name="btnLogin">Iniciar Sesión</string>
+    <string name="Email">Email</string>
+    <string name="Password">Contraseña</string>
+    <string name="PlaceholderEmail">Ingrese su Email</string>
+    <string name="PlaceholderPassword">Ingrese su Contraseña</string>
+</resources>
