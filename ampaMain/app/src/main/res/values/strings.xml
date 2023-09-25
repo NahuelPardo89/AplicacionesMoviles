@@ -6,4 +6,5 @@
     <string name="Password">Contraseña</string>
     <string name="PlaceholderEmail">Ingrese su Email</string>
     <string name="PlaceholderPassword">Ingrese su Contraseña</string>
+
 </resources>

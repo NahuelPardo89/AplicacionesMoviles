@@ -20,7 +20,8 @@
             android:id="@+id/logo"
             android:layout_width="match_parent"
             android:layout_height="336dp"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo"
+            android:contentDescription="@string/logo" />
 
         <TextView
             android:id="@+id/labelEmail"
@@ -30,19 +31,20 @@
             android:layout_marginRight="20dp"
             android:text="@string/Email"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/inputEmail"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:ems="10"
             android:hint="@string/PlaceholderEmail"
             android:inputType="textEmailAddress"
             android:textColor="#AAA9A9"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:autofillHints="emailAddress" />
 
         <Space
             android:layout_width="match_parent"
@@ -56,17 +58,18 @@
             android:layout_marginRight="20dp"
             android:text="@string/Password"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/inputEmail2"
+            android:id="@+id/inputPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:ems="10"
             android:hint="@string/PlaceholderPassword"
-            android:inputType="textEmailAddress"
+            android:inputType="textPassword"
+            android:autofillHints="password"
             android:textSize="20sp" />
 
         <Space
