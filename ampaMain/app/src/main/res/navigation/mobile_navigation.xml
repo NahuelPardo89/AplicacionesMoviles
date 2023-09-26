@@ -12,29 +12,24 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/nav_perfil"
         android:name="com.example.ampamain.ui.perfil.PerfilFragment"
-        android:label="@string/menu_gallery"
+        android:label="@string/menu_perfil"
         tools:layout="@layout/fragment_perfil" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.ampamain.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
-    <fragment
         android:id="@+id/nav_change_password"
         android:name="com.example.ampamain.ui.ChangePasswordFragment"
-        android:label="fragment_change_password"
+        android:label="Cambiar Contraseña"
         tools:layout="@layout/fragment_change_password" />
     <fragment
         android:id="@+id/nav_contacto"
         android:name="com.example.ampamain.ui.ContactoFragment"
-        android:label="fragment_contacto"
+        android:label="Contacto"
         tools:layout="@layout/fragment_contacto" />
     <fragment
         android:id="@+id/nav_credencial"
         android:name="com.example.ampamain.ui.CredencialFragment"
-        android:label="fragment_credencial"
+        android:label="Credencial"
         tools:layout="@layout/fragment_credencial" />
 </navigation>
