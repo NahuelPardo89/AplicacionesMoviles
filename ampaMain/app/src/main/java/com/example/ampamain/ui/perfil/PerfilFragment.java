@@ -1,4 +1,4 @@
-package com.example.ampamain.ui.gallery;
+package com.example.ampamain.ui.perfil;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,23 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.ampamain.databinding.FragmentGalleryBinding;
 
-public class GalleryFragment extends Fragment {
+import com.example.ampamain.databinding.FragmentPerfilBinding;
 
-    private FragmentGalleryBinding binding;
+public class PerfilFragment extends Fragment {
+
+    private FragmentPerfilBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        GalleryViewModel galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
+        PerfilViewModel perfilViewModel =
+                new ViewModelProvider(this).get(PerfilViewModel.class);
 
-        binding = FragmentGalleryBinding.inflate(inflater, container, false);
+        binding = FragmentPerfilBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textGallery;
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textPerfil;
+        perfilViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
