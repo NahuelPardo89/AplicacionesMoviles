@@ -93,5 +93,32 @@
             app:cornerRadius="10dp"
             app:strokeColor="#EDEBEB"
             app:strokeWidth="2dp" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="45dp" />
+        <TextView
+            android:id="@+id/anchorRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="@string/AnchorRegister"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/registrarse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:clickable="true"
+            android:onClick="onRegistrarseClick"
+            android:text="@string/Registrarse"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

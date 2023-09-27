@@ -5,6 +5,8 @@
     <string name="Email">Email</string>
     <string name="Password">Contraseña</string>
     <string name="PlaceholderEmail">Ingrese su Email</string>
+    <string name="AnchorRegister">¿No tienes cuenta?</string>
+    <string name="Registrarse">Registrarse</string>
     <string name="PlaceholderPassword">Ingrese su Contraseña</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>

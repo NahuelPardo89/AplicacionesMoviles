@@ -44,4 +44,13 @@ public class login extends AppCompatActivity {
         // Agregar aqui toda la logica del login
         return username.equals("user") && password.equals("password");
     }
+    public void onRegistrarseClick(View view) {
+        // Aquí defines la acción a realizar cuando se hace clic en "Registrarse"
+        // Crea una Intent para abrir la actividad_registro.xml:
+        Intent intent = new Intent(this, Registro.class); // Reemplaza "activity_registro" con el nombre correcto de tu actividad
+        startActivity(intent);
+    }
+
+
+
 }
