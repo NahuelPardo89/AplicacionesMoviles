@@ -33,9 +33,9 @@ public class RutinasFragment extends Fragment {
         // Crear una lista de rutinas
         List<Rutinas> rutinasList = new ArrayList<>();
         // Añadir algunas rutinas de ejemplo a la lista
-        rutinasList.add(new Rutinas("https://firebasestorage.googleapis.com/v0/b/ampa-api.appspot.com/o/rutina1.mp4?alt=media&token=05975be2-c2e6-4a85-8859-e08918110c1c", "Título 1", "Descripción 1"));
-        rutinasList.add(new Rutinas("https://firebasestorage.googleapis.com/v0/b/ampa-api.appspot.com/o/rutina1.mp4?alt=media&token=05975be2-c2e6-4a85-8859-e08918110c1c", "Título 1", "Descripción 1"));
-        rutinasList.add(new Rutinas("https://firebasestorage.googleapis.com/v0/b/ampa-api.appspot.com/o/rutina1.mp4?alt=media&token=05975be2-c2e6-4a85-8859-e08918110c1c", "Título 1", "Descripción 1"));
+        rutinasList.add(new Rutinas("https://download.samplelib.com/mp4/sample-5s.mp4", "Títulos 1", "Descripción 1"));
+        rutinasList.add(new Rutinas("https://download.samplelib.com/mp4/sample-5s.mp4", "Título 1", "Descripción 1"));
+        rutinasList.add(new Rutinas("https://download.samplelib.com/mp4/sample-5s.mp4", "Título 1", "Descripción 1"));
 
         // Configurar el RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.rutinas_recycler_view);
