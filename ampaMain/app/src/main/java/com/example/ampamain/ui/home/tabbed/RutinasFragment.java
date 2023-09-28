@@ -3,64 +3,46 @@ package com.example.ampamain.ui.home.tabbed;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ampamain.R;
+import com.example.ampamain.ui.home.Rutinas;
+import com.example.ampamain.ui.home.RutinasAdapter;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RutinasFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class RutinasFragment extends Fragment {
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public RutinasFragment() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RutinasFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RutinasFragment newInstance(String param1, String param2) {
-        RutinasFragment fragment = new RutinasFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rutinas, container, false);
+        View view = inflater.inflate(R.layout.fragment_rutinas, container, false);
+
+        // Crear una lista de rutinas
+        List<Rutinas> rutinasList = new ArrayList<>();
+        // Añadir algunas rutinas de ejemplo a la lista
+        rutinasList.add(new Rutinas("https://firebasestorage.googleapis.com/v0/b/ampa-api.appspot.com/o/rutina1.mp4?alt=media&token=05975be2-c2e6-4a85-8859-e08918110c1c", "Título 1", "Descripción 1"));
+        rutinasList.add(new Rutinas("https://firebasestorage.googleapis.com/v0/b/ampa-api.appspot.com/o/rutina1.mp4?alt=media&token=05975be2-c2e6-4a85-8859-e08918110c1c", "Título 1", "Descripción 1"));
+        rutinasList.add(new Rutinas("https://firebasestorage.googleapis.com/v0/b/ampa-api.appspot.com/o/rutina1.mp4?alt=media&token=05975be2-c2e6-4a85-8859-e08918110c1c", "Título 1", "Descripción 1"));
+
+        // Configurar el RecyclerView
+        RecyclerView recyclerView = view.findViewById(R.id.rutinas_recycler_view);
+        RutinasAdapter adapter = new RutinasAdapter(getContext(), rutinasList);
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+
+        return view;
     }
 }

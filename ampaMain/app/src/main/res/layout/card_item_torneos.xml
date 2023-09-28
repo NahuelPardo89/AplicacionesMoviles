@@ -39,5 +39,14 @@
             android:text="Tournament Description"
             android:textSize="16sp" />
 
+        <Button
+            android:id="@+id/inscribe_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tournament_description"
+            android:layout_marginTop="8dp"
+            android:text="@string/btnInscripcion"
+            android:theme="@style/Theme.AmpaMain" />
+
     </RelativeLayout>
 </com.google.android.material.card.MaterialCardView>

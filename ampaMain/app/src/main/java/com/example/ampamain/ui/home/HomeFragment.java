@@ -25,7 +25,7 @@ public class HomeFragment extends Fragment {
         // Inicializar el SectionsPagerAdapter
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getChildFragmentManager());
 
-        // Añadir los fragmentos y títulos de las pestañas
+        //  títulos de las pestañas
         sectionsPagerAdapter.addFragment(new torneosFragment(), "Torneos");
         sectionsPagerAdapter.addFragment(new ClasesFragment(), "Clases");
         sectionsPagerAdapter.addFragment(new RutinasFragment(), "Rutinas");
