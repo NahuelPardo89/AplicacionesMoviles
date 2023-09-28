@@ -95,7 +95,7 @@
             app:strokeWidth="2dp" />
         <Space
             android:layout_width="match_parent"
-            android:layout_height="45dp" />
+            android:layout_height="20dp" />
         <TextView
             android:id="@+id/anchorRegister"
             android:layout_width="match_parent"
