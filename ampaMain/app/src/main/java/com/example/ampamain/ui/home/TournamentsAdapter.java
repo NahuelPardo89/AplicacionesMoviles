@@ -3,8 +3,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,9 +21,11 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
     private final List<Torneos> tournamentList;
     private final Context context;
 
-    public TournamentsAdapter(Context context, List<Torneos> tournamentList) {
+    private final OnTournamentClickListener listener;
+    public TournamentsAdapter(Context context, List<Torneos> tournamentList,OnTournamentClickListener listener) {
         this.context = context;
         this.tournamentList = tournamentList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -36,6 +42,14 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
         holder.titleTextView.setText(tournament.getTitle());
         holder.descriptionTextView.setText(tournament.getDescription());
         holder.imageView.setImageResource(tournament.getImageResource());
+        holder.inscribeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (listener != null) {
+                    listener.onTournamentClick(tournament);
+                }
+            }
+        });
 
     }
 
@@ -49,11 +63,17 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
         final TextView titleTextView;
         final TextView descriptionTextView;
 
+        final Button inscribeButton;
+
         TournamentViewHolder(View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.tournament_image);
             titleTextView = itemView.findViewById(R.id.tournament_title);
             descriptionTextView = itemView.findViewById(R.id.tournament_description);
+            inscribeButton = itemView.findViewById(R.id.inscribe_button);
         }
+    }
+    public interface OnTournamentClickListener {
+        void onTournamentClick(Torneos torneo);
     }
 }
