@@ -33,9 +33,10 @@ public class RutinasFragment extends Fragment {
         // Crear una lista de rutinas
         List<Rutinas> rutinasList = new ArrayList<>();
         // Añadir algunas rutinas de ejemplo a la lista
-        rutinasList.add(new Rutinas("https://download.samplelib.com/mp4/sample-5s.mp4", "Títulos 1", "Descripción 1"));
-        rutinasList.add(new Rutinas("https://download.samplelib.com/mp4/sample-5s.mp4", "Título 1", "Descripción 1"));
-        rutinasList.add(new Rutinas("https://download.samplelib.com/mp4/sample-5s.mp4", "Título 1", "Descripción 1"));
+        rutinasList.add(new Rutinas("https://download.samplelib.com/mp4/sample-5s.mp4", "https://fastly.picsum.photos/id/848/4912/3264.jpg?hmac=u5gcSgfjG1lrEQOQsl8Tgs4SVouF4HQMvUkcy1aD5Z8", "Rutina 1", "Descripcion Rutina 1"));
+        rutinasList.add(new Rutinas("https://download.samplelib.com/mp4/sample-5s.mp4", "https://fastly.picsum.photos/id/848/4912/3264.jpg?hmac=u5gcSgfjG1lrEQOQsl8Tgs4SVouF4HQMvUkcy1aD5Z8", "Rutina 2", "Descripcion Rutina 2"));
+        rutinasList.add(new Rutinas("https://download.samplelib.com/mp4/sample-5s.mp4", "https://fastly.picsum.photos/id/848/4912/3264.jpg?hmac=u5gcSgfjG1lrEQOQsl8Tgs4SVouF4HQMvUkcy1aD5Z8", "Rutina 3", "Descripcion Rutina 3"));
+
 
         // Configurar el RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.rutinas_recycler_view);

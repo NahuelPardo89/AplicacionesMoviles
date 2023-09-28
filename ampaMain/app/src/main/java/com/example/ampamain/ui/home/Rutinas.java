@@ -2,12 +2,16 @@ package com.example.ampamain.ui.home;
 
 public class Rutinas {
     private String videoUrl;
+
+    private final String previewImageUrl;
     private String title;
     private String description;
 
+
     // Constructor
-    public Rutinas(String videoUrl, String title, String description) {
+    public Rutinas(String videoUrl,String previewImageUrl, String title, String description) {
         this.videoUrl = videoUrl;
+        this.previewImageUrl = previewImageUrl;
         this.title = title;
         this.description = description;
     }
@@ -16,6 +20,8 @@ public class Rutinas {
     public String getVideoUrl() {
         return videoUrl;
     }
+
+    public String getPreviewImageUrl() { return previewImageUrl; }
 
     public String getTitle() {
         return title;
