@@ -9,9 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.ampamain.R;
+import com.example.ampamain.ui.home.tabbed.ReservasFragment;
 import com.example.ampamain.ui.home.tabbed.SectionsPagerAdapter;
 import com.example.ampamain.ui.home.tabbed.torneosFragment;
-import com.example.ampamain.ui.home.tabbed.ClasesFragment;
 import com.example.ampamain.ui.home.tabbed.RutinasFragment;
 import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
@@ -25,9 +25,9 @@ public class HomeFragment extends Fragment {
         // Inicializar el SectionsPagerAdapter
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getChildFragmentManager());
 
-        // Añadir los fragmentos y títulos de las pestañas
+        //  títulos de las pestañas
         sectionsPagerAdapter.addFragment(new torneosFragment(), "Torneos");
-        sectionsPagerAdapter.addFragment(new ClasesFragment(), "Clases");
+        sectionsPagerAdapter.addFragment(new ReservasFragment(), "Reservas");
         sectionsPagerAdapter.addFragment(new RutinasFragment(), "Rutinas");
 
         // Configurar el ViewPager
