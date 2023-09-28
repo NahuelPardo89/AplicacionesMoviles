@@ -34,12 +34,13 @@
             android:layout_marginTop="4dp"
             android:layout_gravity="center_horizontal" />
 
-        <VideoView
-            android:id="@+id/rutina_video_view"
+        <ImageView
+            android:id="@+id/rutina_preview_image"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp" />
+            android:layout_below="@id/rutina_title"
+            android:layout_marginTop="8dp"
+            android:scaleType="centerCrop" />
 
         <Button
             android:id="@+id/rutina_play_button"
