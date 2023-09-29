@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 public class login extends AppCompatActivity {
 
     @Override
@@ -34,8 +36,9 @@ public class login extends AppCompatActivity {
                     finish();  // Opcional: finaliza LoginActivity para que el usuario no pueda volver a ella
                 } else {
                     // Si las credenciales son incorrectas, muestra un mensaje de error
-                    Toast.makeText(login.this, "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT).show();
-                }
+                   //Toast.makeText(login.this, "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT).show();
+                    Snackbar.make(view, "Usuario o contraseña incorrecto" , Snackbar.LENGTH_SHORT).show();
+               }
             }
         });
     }
@@ -44,4 +47,13 @@ public class login extends AppCompatActivity {
         // Agregar aqui toda la logica del login
         return username.equals("user") && password.equals("password");
     }
+    public void onRegistrarseClick(View view) {
+        // Aquí defines la acción a realizar cuando se hace clic en "Registrarse"
+        // Crea una Intent para abrir la actividad_registro.xml:
+        Intent intent = new Intent(this, Registro.class); // Reemplaza "activity_registro" con el nombre correcto de tu actividad
+        startActivity(intent);
+    }
+
+
+
 }

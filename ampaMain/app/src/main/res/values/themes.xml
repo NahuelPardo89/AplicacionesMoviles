@@ -1,8 +1,12 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.AmpaMain" parent="Theme.Material3.Dark">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.AmpaMain" parent="Theme.Material3.DynamicColors.Dark">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+
+        <item name="android:windowBackground">@drawable/imagbackground</item>
     </style>
 
     <style name="Theme.AmpaMain" parent="Base.Theme.AmpaMain" />
@@ -12,7 +16,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="Theme.AmpaMain.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.AmpaMain.AppBarOverlay" parent="ThemeOverlay.Material3.Dark.ActionBar">
+        <item name="android:textColorPrimary">@color/colorOnPrimary</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
 
-    <style name="Theme.AmpaMain.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="Theme.AmpaMain.PopupOverlay" parent="ThemeOverlay.Material3.Dark" />
 </resources>

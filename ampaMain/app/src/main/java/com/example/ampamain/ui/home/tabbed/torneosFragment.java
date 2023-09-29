@@ -4,6 +4,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+import com.google.android.material.snackbar.Snackbar;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.ampamain.R;
@@ -33,7 +36,14 @@ public class torneosFragment extends Fragment {
 
         // Set up the RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.tournaments_recycler_view);
-        TournamentsAdapter adapter = new TournamentsAdapter(getContext(), torneosList);
+        TournamentsAdapter.OnTournamentClickListener listener = new TournamentsAdapter.OnTournamentClickListener() {
+            @Override
+            public void onTournamentClick(Torneos torneo) {
+                //Toast.makeText(getContext(), "Inscripción Generada para " + torneo.getTitle(), Toast.LENGTH_SHORT).show();
+                Snackbar.make(view, "Inscripción Generada para " + torneo.getTitle(), Snackbar.LENGTH_SHORT).show();
+            }
+        };
+        TournamentsAdapter adapter = new TournamentsAdapter(getContext(), torneosList, listener);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
 
