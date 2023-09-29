@@ -27,12 +27,12 @@ public class RutinasFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_rutinas, container, false);
 
-        // Crear una lista de rutinas
+        // Crea una lista de rutinas
         List<Rutinas> rutinasList = new ArrayList<>();
-        // Añadir algunas rutinas de ejemplo a la lista
+        // Añadi algunas rutinas de ejemplo a la lista
         rutinasList.add(new Rutinas("https://download.samplelib.com/mp4/sample-5s.mp4", "https://fastly.picsum.photos/id/848/4912/3264.jpg?hmac=u5gcSgfjG1lrEQOQsl8Tgs4SVouF4HQMvUkcy1aD5Z8", "Rutina 1", "Descripcion Rutina 1"));
         rutinasList.add(new Rutinas("https://download.samplelib.com/mp4/sample-5s.mp4", "https://fastly.picsum.photos/id/848/4912/3264.jpg?hmac=u5gcSgfjG1lrEQOQsl8Tgs4SVouF4HQMvUkcy1aD5Z8", "Rutina 2", "Descripcion Rutina 2"));
         rutinasList.add(new Rutinas("https://download.samplelib.com/mp4/sample-5s.mp4", "https://fastly.picsum.photos/id/848/4912/3264.jpg?hmac=u5gcSgfjG1lrEQOQsl8Tgs4SVouF4HQMvUkcy1aD5Z8", "Rutina 3", "Descripcion Rutina 3"));
