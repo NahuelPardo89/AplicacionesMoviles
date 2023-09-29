@@ -67,4 +67,11 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
 
+    <!-- Strings used for fragments Contact-->
+    <string name="nombre">Nombre</string>
+    <string name="emailC">Email</string>
+    <string name="mensaje">Mensaje</string>
+    <string name="PlaceholderMensaje">Deje su mensaje</string>
+    <string name="PlaceholderNombre">Ingrese su nombre</string>
+    <string name="botonEnviar">Enviar</string>
 </resources>
