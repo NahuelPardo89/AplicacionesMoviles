@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.bumptech.glide.Glide;
 import com.example.ampamain.R;
 import com.example.ampamain.UserProfile;
 import com.example.ampamain.ui.perfil.PerfilViewModel;
@@ -50,7 +51,9 @@ public class CredencialFragment extends Fragment {
         nameTextView.setText("Nombre: " + userProfile.getNombre());
         apellidoTextView.setText("Apellido: " + userProfile.getApellido());
         isActiveTextView.setText("Estado: " + (userProfile.isIsActive() ? "Activo" : "Inactivo"));
-        // ... código para cargar la imagen del perfil si es necesario
+        Glide.with(this)
+                .load(userProfile.getFotoUrl())
+                .into(profileImage);
 
         // Generar y mostrar el código QR basado en el DNI
         String dni = userProfile.getDni().toString();
