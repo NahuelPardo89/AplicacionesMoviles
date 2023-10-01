@@ -1,4 +1,15 @@
 package com.example.ampamain.ui;
+import android.content.Intent;
+
+
+
+import android.widget.Button;
+import android.widget.EditText;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
+
 
 import android.os.Bundle;
 
@@ -10,57 +21,43 @@ import android.view.ViewGroup;
 
 import com.example.ampamain.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ContactoFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class ContactoFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+        private EditText nombreEditText, emailEditText, mensajeEditText;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+        public View onCreateView(@NonNull LayoutInflater inflater,
+                                 ViewGroup container, Bundle savedInstanceState) {
+            View root = inflater.inflate(R.layout.fragment_contacto, container, false);
 
-    public ContactoFragment() {
-        // Required empty public constructor
-    }
+            nombreEditText = root.findViewById(R.id.inputNombreContacto);
+            emailEditText = root.findViewById(R.id.inputEmailContacto);
+            mensajeEditText = root.findViewById(R.id.contactUsMessage);
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ContactoFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ContactoFragment newInstance(String param1, String param2) {
-        ContactoFragment fragment = new ContactoFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+            Button enviarButton = root.findViewById(R.id.buttonEnviarContacto);
+            enviarButton.setOnClickListener(v -> enviarEmail());
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            return root;
+        }
+
+        private void enviarEmail() {
+            String nombre = nombreEditText.getText().toString();
+            String email = emailEditText.getText().toString();
+            String mensaje = mensajeEditText.getText().toString();
+
+            String subject = "Mensaje de: " + nombre + ", Email: " + email;
+            String to = "nahuel.pardo74@gmail.com";
+
+            Intent emailIntent = new Intent(Intent.ACTION_SEND);
+            emailIntent.setType("message/rfc822");
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{to});
+            emailIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+            emailIntent.putExtra(Intent.EXTRA_TEXT, mensaje);
+
+            try {
+                startActivity(Intent.createChooser(emailIntent, "Enviar correo..."));
+            } catch (android.content.ActivityNotFoundException ex) {
+                // No hay cliente de correo instalado
+            }
         }
     }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_contacto, container, false);
-    }
-}
