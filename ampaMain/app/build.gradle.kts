@@ -32,6 +32,8 @@ android {
 }
 
 dependencies {
+    implementation ("com.google.zxing:core:3.5.0")
+
     implementation ("com.github.bumptech.glide:glide:4.14.2")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.14.2")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.10")
