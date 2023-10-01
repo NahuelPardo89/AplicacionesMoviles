@@ -1,66 +1,71 @@
 package com.example.ampamain.ui;
-
+import android.graphics.Bitmap;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
 import com.example.ampamain.R;
+import com.example.ampamain.UserProfile;
+import com.example.ampamain.ui.perfil.PerfilViewModel;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link CredencialFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class CredencialFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private PerfilViewModel perfilViewModel;
+    private TextView dniTextView, nameTextView, apellidoTextView, isActiveTextView;
+    private ImageView profileImage, qrCodeImage;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
 
-    public CredencialFragment() {
-        // Required empty public constructor
+        perfilViewModel = new ViewModelProvider(this).get(PerfilViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_credencial, container, false);
+
+        // Inicialización de los elementos de la vista
+        dniTextView = root.findViewById(R.id.dni_text);
+        nameTextView = root.findViewById(R.id.nombre_text);
+        apellidoTextView = root.findViewById(R.id.apellido_text);
+        isActiveTextView = root.findViewById(R.id.is_active_text);
+        profileImage = root.findViewById(R.id.profile_image);
+        qrCodeImage = root.findViewById(R.id.qr_code_image);
+
+        // Observar los cambios en el perfil del usuario
+        perfilViewModel.getUserProfile().observe(getViewLifecycleOwner(), this::updateUI);
+
+        return root;
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CredencialFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static CredencialFragment newInstance(String param1, String param2) {
-        CredencialFragment fragment = new CredencialFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private void updateUI(UserProfile userProfile) {
+        dniTextView.setText("DNI: " + userProfile.getDni().toString());
+        nameTextView.setText("Nombre: " + userProfile.getNombre());
+        apellidoTextView.setText("Apellido: " + userProfile.getApellido());
+        isActiveTextView.setText("Estado: " + (userProfile.isIsActive() ? "Activo" : "Inactivo"));
+        // ... código para cargar la imagen del perfil si es necesario
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+        // Generar y mostrar el código QR basado en el DNI
+        String dni = userProfile.getDni().toString();
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        try {
+            BitMatrix bitMatrix = qrCodeWriter.encode(dni, BarcodeFormat.QR_CODE, 200, 200);
+            Bitmap bitmap = Bitmap.createBitmap(200, 200, Bitmap.Config.RGB_565);
+            for (int x = 0; x < 200; x++) {
+                for (int y = 0; y < 200; y++) {
+                    bitmap.setPixel(x, y, bitMatrix.get(x, y) ? android.graphics.Color.BLACK : android.graphics.Color.WHITE);
+                }
+            }
+            qrCodeImage.setImageBitmap(bitmap);
+        } catch (WriterException e) {
+            e.printStackTrace();
         }
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_credencial, container, false);
     }
 }
