@@ -36,7 +36,7 @@ public class PerfilFragment extends Fragment {
         // Observar los cambios en el perfil del usuario
         perfilViewModel.getUserProfile().observe(getViewLifecycleOwner(), this::updateUI);
 
-        // Configurar el botón Editar para navegar al fragmento de edición
+        // botón Editar para navegar al fragmento de edición
         root.findViewById(R.id.edit_button).setOnClickListener(v -> {
             // Navegar hacia el fragmento de edición (asumiendo que se llamará EditProfileFragment)
             NavHostFragment.findNavController(this).navigate(R.id.editProfileFragment);

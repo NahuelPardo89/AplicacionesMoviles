@@ -10,11 +10,7 @@ import android.view.ViewGroup;
 
 import com.example.ampamain.R;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ContactoFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class ContactoFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
