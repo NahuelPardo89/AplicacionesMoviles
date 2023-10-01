@@ -32,4 +32,9 @@
         android:name="com.example.ampamain.ui.CredencialFragment"
         android:label="Credencial"
         tools:layout="@layout/fragment_credencial" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.ampamain.ui.perfil.EditProfileFragment"
+        android:label="Editar perfil"
+        tools:layout="@layout/fragment_edit_profile" />
 </navigation>
