@@ -2,123 +2,128 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_centerVertical="true"
     tools:context=".login">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="729dp"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="match_parent"
-            android:layout_height="336dp"
-            android:src="@drawable/logo"
-            android:contentDescription="@string/logo" />
-
-        <TextView
-            android:id="@+id/labelEmail"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="@string/Email"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/inputEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:ems="10"
-            android:hint="@string/PlaceholderEmail"
-            android:inputType="textEmailAddress"
-            android:textColor="#AAA9A9"
-            android:textSize="20sp"
-            android:autofillHints="emailAddress" />
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="match_parent"
+                android:layout_height="336dp"
+                android:contentDescription="@string/logo"
+                android:src="@drawable/logo" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
+            <TextView
+                android:id="@+id/labelEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/Email"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/labelEmail2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="@string/Password"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            <EditText
+                android:id="@+id/inputEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:autofillHints="emailAddress"
+                android:ems="10"
+                android:hint="@string/PlaceholderEmail"
+                android:inputType="textEmailAddress"
+                android:textColor="#AAA9A9"
+                android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/inputPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:ems="10"
-            android:hint="@string/PlaceholderPassword"
-            android:inputType="textPassword"
-            android:autofillHints="password"
-            android:textSize="20sp" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="15dp" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="64dp" />
+            <TextView
+                android:id="@+id/labelEmail2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/Password"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/buttonLogin"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="#00F3EEEE"
-            android:fontFamily="@font/roboto"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="@string/btnLogin"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:cornerRadius="10dp"
-            app:strokeColor="#EDEBEB"
-            app:strokeWidth="2dp" />
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="20dp" />
-        <TextView
-            android:id="@+id/anchorRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="@string/AnchorRegister"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
+            <EditText
+                android:id="@+id/inputPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:autofillHints="password"
+                android:ems="10"
+                android:hint="@string/PlaceholderPassword"
+                android:inputType="textPassword"
+                android:textSize="20sp" />
 
-        <TextView
-            android:id="@+id/registrarse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:clickable="true"
-            android:onClick="onRegistrarseClick"
-            android:text="@string/Registrarse"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-    </LinearLayout>
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="64dp" />
+
+            <Button
+                android:id="@+id/buttonLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#00F3EEEE"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="@string/btnLogin"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:cornerRadius="10dp"
+                app:strokeColor="#EDEBEB"
+                app:strokeWidth="2dp" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <TextView
+                android:id="@+id/anchorRegister"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/AnchorRegister"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/registrarse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:clickable="true"
+                android:onClick="onRegistrarseClick"
+                android:text="@string/Registrarse"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

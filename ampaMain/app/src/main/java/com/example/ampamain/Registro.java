@@ -34,4 +34,9 @@ public class Registro extends AppCompatActivity {
             }
         });
     }
+    public void onLoginClick(View view) {
+
+        Intent intent = new Intent(this, login.class); //
+        startActivity(intent);
+    }
 }
