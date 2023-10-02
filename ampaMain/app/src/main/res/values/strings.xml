@@ -79,4 +79,8 @@
     <string name="PlaceholderMensaje">Deje su mensaje</string>
     <string name="PlaceholderNombre">Ingrese su nombre</string>
     <string name="botonEnviar">Enviar</string>
+    <string name="menu_dni">Ingrese su dni</string>
+    <string name="dni">DNI</string>
+    <string name="menu_email">Ingrese su email</string>
+    <string name="menu_registrar">REGISTRAR</string>
 </resources>
