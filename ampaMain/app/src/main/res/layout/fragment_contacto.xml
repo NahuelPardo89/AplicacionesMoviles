@@ -1,14 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.ContactoFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="fragmento Contacto" />
+        android:layout_centerVertical="true"
+        android:layout_gravity="center_horizontal"
+        tools:context=".login">
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="729dp"
+            android:orientation="vertical"
+            android:layout_gravity="center_horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/logo4"
+                android:layout_width="match_parent"
+                android:layout_height="209dp"
+                android:contentDescription="@string/logo"
+                android:scaleType="fitCenter"
+                android:src="@drawable/logocontacto"
+
+
+                />
+
+            <TextView
+                android:id="@+id/labelEmail8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/nombre"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/inputNombreContacto"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:autofillHints="emailAddress"
+                android:ems="10"
+                android:hint="@string/PlaceholderNombre"
+                android:inputType="textEmailAddress"
+
+                android:textColor="#AAA9A9"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/labelEmail9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="@string/Email"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/inputEmailContacto"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:autofillHints="emailAddress"
+                android:ems="10"
+                android:hint="@string/PlaceholderEmail"
+                android:inputType="textEmailAddress"
+                android:textColor="#AAA9A9"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/labelEmail3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="15dp"
+                android:text="@string/mensaje"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/contactUsMessage"
+                style="@style/Widget.Material3.AutoCompleteTextView.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/PlaceholderMensaje"
+                android:inputType="textMultiLine"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:background="@drawable/bordered_edittext_background"
+                />
+
+            <Button
+                android:id="@+id/buttonEnviarContacto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:backgroundTint="#00F3EEEE"
+                android:fontFamily="@font/roboto"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:text="@string/botonEnviar"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:cornerRadius="10dp"
+                app:strokeColor="#EDEBEB"
+                app:strokeWidth="2dp" />
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 </FrameLayout>

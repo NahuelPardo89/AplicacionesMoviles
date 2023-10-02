@@ -8,6 +8,8 @@
     <string name="Email">Email</string>
     <string name="Password">Contraseña</string>
     <string name="PlaceholderEmail">Ingrese su Email</string>
+    <string name="AnchorRegister">¿No tienes cuenta?</string>
+    <string name="Registrarse">Registrarse</string>
     <string name="PlaceholderPassword">Ingrese su Contraseña</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -66,5 +68,19 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="changepass">CAMBIAR CONTRASEÑA</string>
+    <string name="changepassNueva">Nueva Contraseña</string>
+    <string name="changepassRepita">Repetir Nueva Contraseña</string>
 
+    <!-- Strings used for fragments Contact-->
+    <string name="nombre">Nombre</string>
+    <string name="emailC">Email</string>
+    <string name="mensaje">Mensaje</string>
+    <string name="PlaceholderMensaje">Deje su mensaje</string>
+    <string name="PlaceholderNombre">Ingrese su nombre</string>
+    <string name="botonEnviar">Enviar</string>
+    <string name="menu_dni">Ingrese su dni</string>
+    <string name="dni">DNI</string>
+    <string name="menu_email">Ingrese su email</string>
+    <string name="menu_registrar">REGISTRAR</string>
 </resources>
