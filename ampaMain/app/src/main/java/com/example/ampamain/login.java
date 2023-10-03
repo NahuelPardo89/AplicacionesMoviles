@@ -1,6 +1,5 @@
 package com.example.ampamain;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,52 +7,72 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.google.android.material.snackbar.Snackbar;
+import androidx.appcompat.app.AppCompatActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class login extends AppCompatActivity {
+
+    private EditText emailEditText, passwordEditText;
+    private Button loginButton, registerButton;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button loginButton = findViewById(R.id.buttonLogin);
+        // Inicializa Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
+
+        emailEditText = findViewById(R.id.inputEmailLogin);
+        passwordEditText = findViewById(R.id.inputPasswordLogin);
+        loginButton = findViewById(R.id.btnLoginLogin);
+
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                //  datos del formulario de login
-                EditText inputEmail = findViewById(R.id.inputEmail);
-                EditText inputPassword = findViewById(R.id.inputPassword);
-                String username = inputEmail.getText().toString();
-                String password = inputPassword.getText().toString();
-
-                // Verifica las credenciales
-                if (verifyCredentials(username, password)) {
-                    // Si las credenciales son correctas, navega a MainActivity
-                    Intent intent = new Intent(login.this, MainActivity.class);
-                    startActivity(intent);
-                    finish();  // Opcional: finaliza LoginActivity para que el usuario no pueda volver a ella
-                } else {
-                    // Si las credenciales son incorrectas, muestra un mensaje de error
-                   //Toast.makeText(login.this, "Usuario o contraseña incorrecto", Toast.LENGTH_SHORT).show();
-                    Snackbar.make(view, "Usuario o contraseña incorrecto" , Snackbar.LENGTH_SHORT).show();
-               }
+            public void onClick(View v) {
+                loginUser();
             }
         });
-    }
-    // Método placeholder para verificar las credenciales
-    private boolean verifyCredentials(String username, String password) {
-        // Agregar aqui toda la logica del login
-        return username.equals("user") && password.equals("password");
-    }
-    public void onRegistrarseClick(View view) {
-        // Aquí defines la acción a realizar cuando se hace clic en "Registrarse"
-        // Crea una Intent para abrir la actividad_registro.xml:
-        Intent intent = new Intent(this, Registro.class); // Reemplaza "activity_registro" con el nombre correcto de tu actividad
-        startActivity(intent);
-    }
 
 
+    }
 
+    private void loginUser() {
+        String email = emailEditText.getText().toString().trim();
+        String password = passwordEditText.getText().toString().trim();
+
+        if (email.isEmpty() || password.isEmpty()) {
+            Toast.makeText(this, "Por favor, complete todos los campos.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        mAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Inicio de sesión exitoso
+                        FirebaseUser user = mAuth.getCurrentUser();
+                        Toast.makeText(login.this, "Autenticación exitosa.", Toast.LENGTH_SHORT).show();
+                        Intent mainIntent = new Intent(login.this, MainActivity.class);
+                        startActivity(mainIntent);
+                        finish();
+                    } else {
+                        // Si la autenticación falla, muestra un mensaje al usuario.
+                        Toast.makeText(login.this, "Autenticación fallida.", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Verifica si el usuario está autenticado (no nulo) y actualiza la interfaz en consecuencia.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if (currentUser != null) {
+            Toast.makeText(this, "Usuario ya autenticado.", Toast.LENGTH_SHORT).show();
+            // Aquí puedes dirigir al usuario a la pantalla principal de tu aplicación o cualquier otra actividad
+        }
+    }
 }
