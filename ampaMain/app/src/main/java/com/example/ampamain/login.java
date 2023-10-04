@@ -36,7 +36,7 @@ public class login extends AppCompatActivity {
         loginButton = findViewById(R.id.btnLogin_Login);
         registerButton = findViewById(R.id.btnRegistrarse_login);
 
-        // Añadir TextWatcher para validación en tiempo real
+        // TextWatcher para validación en tiempo real
         emailEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
