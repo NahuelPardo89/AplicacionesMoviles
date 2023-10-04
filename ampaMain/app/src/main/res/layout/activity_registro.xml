@@ -99,7 +99,7 @@
                 android:textSize="16sp" />
 
             <EditText
-                android:id="@+id/inputPasswordLogin"
+                android:id="@+id/inputPassword_Login"
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:layout_margin="20dp"

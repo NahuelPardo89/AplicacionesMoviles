@@ -9,7 +9,10 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -19,7 +22,7 @@
             <ImageView
                 android:id="@+id/logo"
                 android:layout_width="match_parent"
-                android:layout_height="336dp"
+                android:layout_height="250dp"
                 android:contentDescription="@string/logo"
                 android:src="@drawable/logo" />
 
@@ -33,18 +36,25 @@
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/inputEmailLogin"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputEmail_login_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:autofillHints="emailAddress"
-                android:ems="10"
-                android:hint="@string/PlaceholderEmail"
-                android:inputType="textEmailAddress"
-                android:textColor="#AAA9A9"
-                android:textSize="20sp" />
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputEmail_login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="emailAddress"
+                    android:ems="10"
+                    android:hint="@string/PlaceholderEmail"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#AAA9A9"
+                    android:textSize="20sp" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Space
                 android:layout_width="match_parent"
@@ -60,24 +70,34 @@
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
-            <EditText
-                android:id="@+id/inputPasswordLogin"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputPassword_Login_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:autofillHints="password"
-                android:ems="10"
-                android:hint="@string/PlaceholderPassword"
-                android:inputType="textPassword"
-                android:textSize="20sp" />
+                app:errorEnabled="true"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputPassword_Login"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autofillHints="password"
+                    android:ems="10"
+                    android:hint="@string/PlaceholderPassword"
+                    android:inputType="textPassword"
+                    android:textSize="20sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <Space
                 android:layout_width="match_parent"
                 android:layout_height="64dp" />
 
             <Button
-                android:id="@+id/btnLoginLogin"
+                android:id="@+id/btnLogin_Login"
+                style="@style/Widget.Material3.Button.IconButton.Outlined"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
@@ -99,30 +119,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp" />
 
-            <TextView
-                android:id="@+id/anchorRegister"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:text="@string/AnchorRegister"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp" />
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/btnregistrarselogin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:clickable="true"
-                android:onClick="onRegistrarseClick"
-                android:text="@string/Registrarse"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/anchorRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/AnchorRegister"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/btnRegistrarse_login"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Registrarse"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
         </LinearLayout>
     </ScrollView>
 

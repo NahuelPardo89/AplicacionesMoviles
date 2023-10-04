@@ -18,7 +18,7 @@
             android:src="@drawable/logo" />
 
         <Button
-            android:id="@+id/btnLoginLogin"
+            android:id="@+id/btnLogin_Login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
