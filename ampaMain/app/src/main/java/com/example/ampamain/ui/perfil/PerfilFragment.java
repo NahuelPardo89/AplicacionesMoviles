@@ -13,12 +13,16 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.example.ampamain.R;
 import com.bumptech.glide.Glide;
 import com.example.ampamain.UserProfile;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class PerfilFragment extends Fragment {
 
     private PerfilViewModel perfilViewModel;
     private TextView dniText, nameText, emailText, isActiveText;
     private ImageView profileImage;
+
+    private FirebaseUser currentUser;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -32,6 +36,8 @@ public class PerfilFragment extends Fragment {
         emailText = root.findViewById(R.id.email);
         isActiveText = root.findViewById(R.id.is_active);
         profileImage = root.findViewById(R.id.profile_image);
+        // Obtener el usuario actual de FirebaseAuth
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         // Observar los cambios en el perfil del usuario
         perfilViewModel.getUserProfile().observe(getViewLifecycleOwner(), this::updateUI);
@@ -46,9 +52,9 @@ public class PerfilFragment extends Fragment {
     }
 
     private void updateUI(UserProfile userProfile) {
-        dniText.setText(userProfile.getDni().toString());
+        dniText.setText("nombre"+currentUser.getDisplayName());
         nameText.setText(userProfile.getNombre());
-        emailText.setText(userProfile.getEmail());
+        emailText.setText("email"+currentUser.getEmail());
         isActiveText.setText(userProfile.isIsActive() ? "Activo" : "Inactivo");
         Glide.with(this)
                 .load(userProfile.getFotoUrl())

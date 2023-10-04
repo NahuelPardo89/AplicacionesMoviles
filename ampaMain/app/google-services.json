@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "648588448352",
+    "project_id": "ampa-api",
+    "storage_bucket": "ampa-api.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648588448352:android:667ccc71bebd89383ea905",
+        "android_client_info": {
+          "package_name": "com.example.ampa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOd80N1Y2Qqyo2iiHau3jSIVAJ00LHhms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648588448352:android:3c719f87cb388fcf3ea905",
+        "android_client_info": {
+          "package_name": "com.example.ampamain"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOd80N1Y2Qqyo2iiHau3jSIVAJ00LHhms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:648588448352:android:6513b8a949e7e3463ea905",
+        "android_client_info": {
+          "package_name": "com.nahuelDev.ampa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOd80N1Y2Qqyo2iiHau3jSIVAJ00LHhms"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
