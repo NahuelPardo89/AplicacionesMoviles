@@ -5,7 +5,7 @@
         <item name="colorOnPrimary">@color/colorOnPrimary</item>
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorOnSecondary">@color/colorOnSecondary</item>
-        <item name="android:fontFamily">@font/robotobold</item>
+        <item name="android:fontFamily">@font/worksansregular</item>
         <!--  <item name="android:windowBackground">@drawable/imagbackground</item>-->
     </style>
 
