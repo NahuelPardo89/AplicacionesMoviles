@@ -6,7 +6,7 @@
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorOnSecondary">@color/colorOnSecondary</item>
         <item name="android:fontFamily">@font/robotobold</item>
-        <item name="android:windowBackground">@drawable/imagbackground</item>
+        <!--  <item name="android:windowBackground">@drawable/imagbackground</item>-->
     </style>
 
     <style name="Theme.AmpaMain" parent="Base.Theme.AmpaMain" />
