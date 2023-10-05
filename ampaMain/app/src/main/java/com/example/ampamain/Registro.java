@@ -19,12 +19,14 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import android.net.Uri;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import java.util.regex.Pattern;
 
 public class Registro extends AppCompatActivity {
 
-    private EditText emailEditText, password1EditText, password2EditText;
+    private EditText emailEditText, password1EditText, password2EditText,nameEditText;
     private TextInputLayout emailInputLayout, password1InputLayout, password2InputLayout;
     private Button registerButton;
     private FirebaseAuth firebaseAuth;
@@ -47,6 +49,7 @@ public class Registro extends AppCompatActivity {
 
     private void initializeComponents() {
         emailEditText = findViewById(R.id.inputEmail_Registro);
+        nameEditText = findViewById(R.id.inputNombre_Registro);
         password1EditText = findViewById(R.id.inputPassword1_registro);
         password2EditText = findViewById(R.id.inputPassword2_registro);
         emailInputLayout = findViewById(R.id.inputEmail_registro_layout);
@@ -171,12 +174,38 @@ public class Registro extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressDialog.dismiss();
                         if (task.isSuccessful()) {
-                            Toast.makeText(Registro.this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show();
+
                             FirebaseUser user = firebaseAuth.getCurrentUser();
-                            // Aquí puedes agregar más acciones, como guardar información adicional del usuario en la base de datos, etc.
-                            startActivity(new Intent(Registro.this, login.class));
+                            if (user != null) {
+                                updateProfile(user);
+                            }
                         } else {
                             Toast.makeText(Registro.this, "Error al registrar el usuario", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
+
+    private void updateProfile(FirebaseUser user) {
+
+        String defaultImageUrl = "https://firebasestorage.googleapis.com/v0/b/ampa-api.appspot.com/o/profileImages%2Favatar.png?alt=media&token=dab520d2-b45f-41d2-9b11-217972cb7b18";
+        String displayName = nameEditText.getText().toString().trim();
+
+        UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                .setPhotoUri(Uri.parse(defaultImageUrl))
+                .setDisplayName(displayName)
+                .build();
+
+        user.updateProfile(profileUpdates)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        progressDialog.dismiss();
+                        if (task.isSuccessful()) {
+                            Toast.makeText(Registro.this, "Usuario registrado con éxito", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(Registro.this, login.class));
+                        } else {
+                            Toast.makeText(Registro.this, "Error al establecer imagen de perfil por defecto", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
