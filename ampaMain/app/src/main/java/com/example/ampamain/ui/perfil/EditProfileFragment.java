@@ -1,69 +1,146 @@
 package com.example.ampamain.ui.perfil;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.fragment.NavHostFragment;
-import com.example.ampamain.R;
+import android.widget.Toast;
 import com.bumptech.glide.Glide;
-import com.example.ampamain.UserProfile;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
+import com.example.ampamain.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.IOException;
 
 public class EditProfileFragment extends Fragment {
 
-    private PerfilViewModel perfilViewModel;
-    private EditText dniEditText, nameEditText, apellidoEditText, emailEditText;
-    private ImageView profileImage;
-    private Button saveButton, changePhotoButton;
+    private static final int PICK_IMAGE_REQUEST = 1;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        perfilViewModel = new ViewModelProvider(this).get(PerfilViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_edit_profile, container, false);
+    private ImageView profileImageView;
+    private EditText nameEditText, emailEditText;
+    private Button updateButton;
 
-        dniEditText = root.findViewById(R.id.dni);
-        nameEditText = root.findViewById(R.id.nombre);
-        apellidoEditText = root.findViewById(R.id.apellido);
-        emailEditText = root.findViewById(R.id.email);
-        profileImage = root.findViewById(R.id.profile_image);
-        saveButton = root.findViewById(R.id.save_button);
-        changePhotoButton = root.findViewById(R.id.change_photo_button);
+    private FirebaseAuth mAuth;
+    private FirebaseStorage mStorage;
 
-        perfilViewModel.getUserProfile().observe(getViewLifecycleOwner(), this::updateUI);
+    private Uri mImageUri;
 
-        saveButton.setOnClickListener(this::onSaveClick);
-        changePhotoButton.setOnClickListener(v -> {
-            // Lógica para permitir al usuario cambiar su foto
-        });
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
 
-        return root;
+        profileImageView = view.findViewById(R.id.profileImageView_edit);
+        nameEditText = view.findViewById(R.id.nameEditText_edit);
+        emailEditText = view.findViewById(R.id.emailEditText_edit);
+        updateButton = view.findViewById(R.id.updateButton_edit);
+
+        mAuth = FirebaseAuth.getInstance();
+        mStorage = FirebaseStorage.getInstance();
+
+        profileImageView.setOnClickListener(v -> openFileChooser());
+
+        updateButton.setOnClickListener(v -> updateProfile());
+
+        loadUserData();
+
+        return view;
     }
 
-    private void updateUI(UserProfile userProfile) {
-        dniEditText.setText(userProfile.getDni().toString());
-        nameEditText.setText(userProfile.getNombre());
-        apellidoEditText.setText(userProfile.getApellido());
-        emailEditText.setText(userProfile.getEmail());
-        Glide.with(this)
-                .load(userProfile.getFotoUrl())
-                .into(profileImage);
+    private void loadUserData() {
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
+            nameEditText.setText(user.getDisplayName());
+            emailEditText.setText(user.getEmail());
+            if (user.getPhotoUrl() != null) {
+                // Load the user's profile image using Glide or Picasso
+                // For this example, I'm assuming you have Glide in your app
+                Glide.with(this).load(user.getPhotoUrl()).into(profileImageView);
+            }
+        }
     }
 
-    public void onSaveClick(View view) {
-        UserProfile updatedProfile = new UserProfile(
-                Integer.parseInt(dniEditText.getText().toString()),
-                nameEditText.getText().toString(),
-                apellidoEditText.getText().toString(),
-                emailEditText.getText().toString(),
-                perfilViewModel.getUserProfile().getValue().isIsActive(),
-                ""  // URL de la foto, puedes obtenerlo de la misma manera si la URL cambia
-        );
-        perfilViewModel.updateUserProfile(updatedProfile);
+    private void openFileChooser() {
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, PICK_IMAGE_REQUEST);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data != null && data.getData() != null) {
+            mImageUri = data.getData();
+
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), mImageUri);
+                profileImageView.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void updateProfile() {
+        String name = nameEditText.getText().toString().trim();
+        String email = emailEditText.getText().toString().trim();
+
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
+            if (mImageUri != null) {
+                // Upload the image to Firebase Storage
+                StorageReference profileImageRef = mStorage.getReference("profileImages/" + user.getUid() + ".jpg");
+                profileImageRef.putFile(mImageUri).addOnSuccessListener(taskSnapshot -> profileImageRef.getDownloadUrl().addOnSuccessListener(uri -> {
+                    updateFirebaseProfile(uri, name, email);
+                })).addOnFailureListener(e -> Toast.makeText(getContext(), "Error al subir imagen: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+            } else {
+                updateFirebaseProfile(user.getPhotoUrl(), name, email);
+            }
+        }
+    }
+
+    private void updateFirebaseProfile(Uri photoUri, String name, String email) {
+        FirebaseUser user = mAuth.getCurrentUser();
+        if (user != null) {
+            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                    .setDisplayName(name)
+                    .setPhotoUri(photoUri)
+                    .build();
+
+            user.updateProfile(profileUpdates).addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    user.updateEmail(email).addOnCompleteListener(emailUpdateTask -> {
+                        if (emailUpdateTask.isSuccessful()) {
+                            Toast.makeText(getContext(), "Perfil actualizado", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(getContext(), "Error al actualizar email", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+                    Toast.makeText(getContext(), "Error al actualizar perfil", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 }
