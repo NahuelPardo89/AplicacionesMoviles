@@ -156,7 +156,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:backgroundTint="#00F3EEEE"
-                android:fontFamily="@font/roboto"
+                android:fontFamily="@font/robotoligth"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="@string/menu_registrar"
