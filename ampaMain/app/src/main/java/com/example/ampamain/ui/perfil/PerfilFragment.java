@@ -1,4 +1,5 @@
 package com.example.ampamain.ui.perfil;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -6,14 +7,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.ampamain.R;
+import com.example.ampamain.Registro;
+import com.example.ampamain.login;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import java.io.IOException;
@@ -26,6 +31,8 @@ public class PerfilFragment extends Fragment {
     private PerfilViewModel mViewModel;
     private TextView nameTextView, emailTextView, dniTextView;
     private ImageView profileImageView;
+
+    private Button btnEditar;
     private FirebaseAuth mAuth;
 
     public static PerfilFragment newInstance() {
@@ -49,8 +56,15 @@ public class PerfilFragment extends Fragment {
         nameTextView = getView().findViewById(R.id.nombreTextView_perfil);
         emailTextView = getView().findViewById(R.id.emailTextView_perfil);
         profileImageView = getView().findViewById(R.id.profileImageView);
+        btnEditar=getView().findViewById(R.id.edit_button_perfil);
+
 
         updateUI();
+        btnEditar.setOnClickListener(v -> {
+            // Navegar hacia el fragmento de edición (asumiendo que se llamará EditProfileFragment)
+            NavHostFragment.findNavController(this).navigate(R.id.editProfileFragment);
+        });
+
     }
 
     private void updateUI() {
