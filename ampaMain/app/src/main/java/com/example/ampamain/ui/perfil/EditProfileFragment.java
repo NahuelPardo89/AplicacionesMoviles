@@ -18,6 +18,7 @@ import com.bumptech.glide.Glide;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.ampamain.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -133,6 +134,7 @@ public class EditProfileFragment extends Fragment {
                     user.updateEmail(email).addOnCompleteListener(emailUpdateTask -> {
                         if (emailUpdateTask.isSuccessful()) {
                             Toast.makeText(getContext(), "Perfil actualizado", Toast.LENGTH_SHORT).show();
+                            NavHostFragment.findNavController(this).navigate(R.id.nav_perfil);
                         } else {
                             Toast.makeText(getContext(), "Error al actualizar email", Toast.LENGTH_SHORT).show();
                         }

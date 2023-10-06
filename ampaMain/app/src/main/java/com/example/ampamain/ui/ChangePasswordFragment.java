@@ -36,8 +36,8 @@ public class ChangePasswordFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         // Views
-        EditText password1EditText = view.findViewById(R.id.changepassCampoNueva);
-        EditText password2EditText = view.findViewById(R.id.changepassCampoRepita);
+        EditText password1EditText = view.findViewById(R.id.inputPassword1_change);
+        EditText password2EditText = view.findViewById(R.id.inputPassword2_change);
         Button btnCambiar = view.findViewById(R.id.buttonCambiar_password);
 
         btnCambiar.setOnClickListener(v -> {
