@@ -2,6 +2,7 @@
 ## Repositorio anterior:
 Api Web AMPA: https://github.com/NahuelPardo89/Proyecto-FullStack.git
 
+SPRINT 1: Video Navegación entre Activity:  https://drive.google.com/file/d/1diPKprlkWNVRg4nF9BCvOEp4TmUYJKlT/view?usp=sharing
 
 # AMPA Complejo deportivo - App Android 📱
 La aplicación oficial para el complejo deportivo AMPA. Con tu credencial digital, accede a las instalaciones, mantente al día con los torneos próximos, sigue rutinas de ejercicios y reserva tus espacios favoritos.
