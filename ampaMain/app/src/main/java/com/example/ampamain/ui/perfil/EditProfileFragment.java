@@ -15,21 +15,18 @@ import android.widget.ImageView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.ampamain.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.storage.UploadTask;
+
 
 import java.io.IOException;
 
@@ -37,7 +34,7 @@ public class EditProfileFragment extends Fragment {
 
     private static final int PICK_IMAGE_REQUEST = 1;
 
-    private ImageView profileImageView;
+    private ImageView profileImageView, profileImageBtn;
     private EditText nameEditText, emailEditText;
     private Button updateButton;
 
@@ -51,6 +48,8 @@ public class EditProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_edit_profile, container, false);
 
         profileImageView = view.findViewById(R.id.profileImageView_edit);
+        profileImageBtn = view.findViewById(R.id.changeProfileImageButton);
+
         nameEditText = view.findViewById(R.id.nameEditText_edit);
         emailEditText = view.findViewById(R.id.emailEditText_edit);
         updateButton = view.findViewById(R.id.updateButton_edit);
@@ -58,7 +57,7 @@ public class EditProfileFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         mStorage = FirebaseStorage.getInstance();
 
-        profileImageView.setOnClickListener(v -> openFileChooser());
+        profileImageBtn.setOnClickListener(v -> openFileChooser());
 
         updateButton.setOnClickListener(v -> updateProfile());
 
@@ -73,8 +72,7 @@ public class EditProfileFragment extends Fragment {
             nameEditText.setText(user.getDisplayName());
             emailEditText.setText(user.getEmail());
             if (user.getPhotoUrl() != null) {
-                // Load the user's profile image using Glide or Picasso
-                // For this example, I'm assuming you have Glide in your app
+
                 Glide.with(this).load(user.getPhotoUrl()).into(profileImageView);
             }
         }

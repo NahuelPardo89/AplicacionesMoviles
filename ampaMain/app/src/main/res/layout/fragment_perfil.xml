@@ -28,49 +28,39 @@
                 android:contentDescription="imagen de perfil"
                 android:src="@drawable/ic_launcher_foreground" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/labelNombre_perfil"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:layout_marginRight="8dp"
+                android:gravity="start"
+                android:text="Nombre: "
+                android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/labelNombre_perfil"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="8dp"
-                    android:text="Nombre: "
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/nombreTextView_perfil"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="Nombre"
-                    android:textSize="20sp" />
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/nombreTextView_perfil"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
+                android:layout_marginTop="12dp"
+                android:text="Nombre"
+                android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/labelEmail_perfiil"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginRight="8dp"
-                    android:text="Email: "
-                    android:textSize="20sp" />
+            <TextView
+                android:id="@+id/labelEmail_perfiil"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="12dp"
+                android:gravity="start"
+                android:text="Email: "
+                android:textSize="20sp" />
 
-                <TextView
-                    android:id="@+id/emailTextView_perfil"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Email"
-                    android:textSize="20sp" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/emailTextView_perfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Email"
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/edit_button_perfil"
@@ -79,6 +69,7 @@
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
                 android:text="Editar" />
+
         </LinearLayout>
     </ScrollView>
 
