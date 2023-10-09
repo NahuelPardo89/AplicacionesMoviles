@@ -1,10 +1,10 @@
-package com.example.ampamain.ui.perfil;
+package com.example.ampamain.fragments.perfil;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.ampamain.UserProfile;
+import com.example.ampamain.modelos.UserProfile;
 
 public class PerfilViewModel extends ViewModel {
 

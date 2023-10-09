@@ -1,4 +1,4 @@
-package com.example.ampamain.ui.perfil;
+package com.example.ampamain.fragments.perfil;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,20 +14,15 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
-
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
-
 import com.example.ampamain.R;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
-
 import java.io.IOException;
 
 public class EditProfileFragment extends Fragment {
@@ -49,7 +44,6 @@ public class EditProfileFragment extends Fragment {
 
         profileImageView = view.findViewById(R.id.profileImageView_edit);
         profileImageBtn = view.findViewById(R.id.changeProfileImageButton);
-
         nameEditText = view.findViewById(R.id.nameEditText_edit);
         emailEditText = view.findViewById(R.id.emailEditText_edit);
         updateButton = view.findViewById(R.id.updateButton_edit);

@@ -1,4 +1,4 @@
-package com.example.ampamain.ui.home;
+package com.example.ampamain.fragments.home;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ampamain.R;
+import com.example.ampamain.modelos.Instalacion;
 import com.google.android.material.snackbar.Snackbar;
 import java.util.List;
 

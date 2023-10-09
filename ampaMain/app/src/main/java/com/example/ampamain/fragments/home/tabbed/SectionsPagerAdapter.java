@@ -1,4 +1,4 @@
-package com.example.ampamain.ui.home.tabbed;
+package com.example.ampamain.fragments.home.tabbed;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;

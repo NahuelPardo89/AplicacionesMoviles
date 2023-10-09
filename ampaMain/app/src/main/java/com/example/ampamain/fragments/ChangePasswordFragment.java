@@ -1,8 +1,7 @@
-package com.example.ampamain.ui;
+package com.example.ampamain.fragments;
 
 import android.os.Bundle;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;

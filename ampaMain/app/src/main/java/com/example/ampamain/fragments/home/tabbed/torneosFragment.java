@@ -1,17 +1,17 @@
-package com.example.ampamain.ui.home.tabbed;
+package com.example.ampamain.fragments.home.tabbed;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.ampamain.R;
-import com.example.ampamain.ui.home.Torneos;
-import com.example.ampamain.ui.home.TournamentsAdapter;
+import com.example.ampamain.modelos.Torneos;
+import com.example.ampamain.fragments.home.TournamentsAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

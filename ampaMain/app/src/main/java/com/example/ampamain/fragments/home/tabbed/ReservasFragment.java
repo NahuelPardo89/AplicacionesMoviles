@@ -1,4 +1,4 @@
-package com.example.ampamain.ui.home.tabbed;
+package com.example.ampamain.fragments.home.tabbed;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ampamain.R;
-import com.example.ampamain.ui.home.Instalacion;
-import com.example.ampamain.ui.home.InstalacionesAdapter;
+import com.example.ampamain.modelos.Instalacion;
+import com.example.ampamain.fragments.home.InstalacionesAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

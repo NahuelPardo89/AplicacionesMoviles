@@ -1,4 +1,4 @@
-package com.example.ampamain.ui.home;
+package com.example.ampamain.fragments.home;
 
 
 
@@ -9,10 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.ampamain.R;
-import com.example.ampamain.ui.home.tabbed.ReservasFragment;
-import com.example.ampamain.ui.home.tabbed.SectionsPagerAdapter;
-import com.example.ampamain.ui.home.tabbed.torneosFragment;
-import com.example.ampamain.ui.home.tabbed.RutinasFragment;
+import com.example.ampamain.fragments.home.tabbed.ReservasFragment;
+import com.example.ampamain.fragments.home.tabbed.SectionsPagerAdapter;
+import com.example.ampamain.fragments.home.tabbed.torneosFragment;
+import com.example.ampamain.fragments.home.tabbed.RutinasFragment;
 import com.google.android.material.tabs.TabLayout;
 import androidx.viewpager.widget.ViewPager;
 

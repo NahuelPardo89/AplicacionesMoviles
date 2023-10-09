@@ -7,34 +7,34 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.ampamain.ui.home.HomeFragment"
+        android:name="com.example.ampamain.fragments.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_perfil"
-        android:name="com.example.ampamain.ui.perfil.PerfilFragment"
+        android:name="com.example.ampamain.fragments.perfil.PerfilFragment"
         android:label="@string/menu_perfil"
         tools:layout="@layout/fragment_perfil" />
 
     <fragment
         android:id="@+id/nav_change_password"
-        android:name="com.example.ampamain.ui.ChangePasswordFragment"
+        android:name="com.example.ampamain.fragments.ChangePasswordFragment"
         android:label="Cambiar Contraseña"
         tools:layout="@layout/fragment_change_password" />
     <fragment
         android:id="@+id/nav_contacto"
-        android:name="com.example.ampamain.ui.ContactoFragment"
+        android:name="com.example.ampamain.fragments.ContactoFragment"
         android:label="Contacto"
         tools:layout="@layout/fragment_contacto" />
     <fragment
         android:id="@+id/nav_credencial"
-        android:name="com.example.ampamain.ui.CredencialFragment"
+        android:name="com.example.ampamain.fragments.CredencialFragment"
         android:label="Credencial"
         tools:layout="@layout/fragment_credencial" />
     <fragment
         android:id="@+id/editProfileFragment"
-        android:name="com.example.ampamain.ui.perfil.EditProfileFragment"
+        android:name="com.example.ampamain.fragments.perfil.EditProfileFragment"
         android:label="Editar perfil"
         tools:layout="@layout/fragment_edit_profile" />
 </navigation>
