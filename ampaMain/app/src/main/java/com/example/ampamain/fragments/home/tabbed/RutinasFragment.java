@@ -1,4 +1,4 @@
-package com.example.ampamain.ui.home.tabbed;
+package com.example.ampamain.fragments.home.tabbed;
 
 import android.os.Bundle;
 
@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ampamain.R;
-import com.example.ampamain.ui.home.Rutinas;
-import com.example.ampamain.ui.home.RutinasAdapter;
+import com.example.ampamain.modelos.Rutinas;
+import com.example.ampamain.fragments.home.RutinasAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

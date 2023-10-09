@@ -1,4 +1,4 @@
-package com.example.ampamain.ui.home;
+package com.example.ampamain.fragments.home;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

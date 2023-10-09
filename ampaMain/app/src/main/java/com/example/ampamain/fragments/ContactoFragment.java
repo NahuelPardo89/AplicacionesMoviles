@@ -1,4 +1,4 @@
-package com.example.ampamain.ui;
+package com.example.ampamain.fragments;
 import android.content.Intent;
 
 
@@ -12,8 +12,6 @@ import androidx.fragment.app.Fragment;
 
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;

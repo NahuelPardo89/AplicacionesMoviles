@@ -1,4 +1,4 @@
-package com.example.ampamain;
+package com.example.ampamain.modelos;
 
 public class UserProfile {
     private Integer dni;

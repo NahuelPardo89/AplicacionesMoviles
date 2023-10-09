@@ -1,4 +1,4 @@
-package com.example.ampamain.ui;
+package com.example.ampamain.fragments;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,8 +13,8 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.example.ampamain.R;
-import com.example.ampamain.UserProfile;
-import com.example.ampamain.ui.perfil.PerfilViewModel;
+import com.example.ampamain.modelos.UserProfile;
+import com.example.ampamain.fragments.perfil.PerfilViewModel;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;

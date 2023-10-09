@@ -1,4 +1,4 @@
-package com.example.ampamain.ui.home;
+package com.example.ampamain.modelos;
 
 public class Torneos {
     private final String title;
