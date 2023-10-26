@@ -25,5 +25,9 @@
             android:id="@+id/nav_credencial"
             android:icon="@drawable/credential_icon"
             android:title="@string/menu_credencial" />
+        <item
+            android:id="@+id/nav_logout"
+            android:title="Cerrar sesión"
+            android:icon="@drawable/iconlogout" />
     </group>
 </menu>

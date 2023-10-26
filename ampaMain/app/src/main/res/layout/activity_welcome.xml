@@ -14,27 +14,10 @@
         <ImageView
             android:id="@+id/logo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:src="@drawable/logo" />
 
-        <Button
-            android:id="@+id/btnLogin_Login"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:backgroundTint="#00F3EEEE"
-            android:fontFamily="@font/roboto"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:text="@string/btnLogin"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:cornerRadius="10dp"
-            app:strokeColor="#EDEBEB"
-            app:strokeWidth="2dp" />
+
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

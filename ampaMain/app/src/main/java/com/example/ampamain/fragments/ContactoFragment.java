@@ -1,25 +1,24 @@
-package com.example.ampamain.ui;
+package com.example.ampamain.fragments;
 import android.content.Intent;
 
 
-
+import android.os.Handler;
 import android.widget.Button;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
+import androidx.navigation.fragment.NavHostFragment;
 
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ampamain.R;
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class ContactoFragment extends Fragment {
@@ -56,8 +55,23 @@ public class ContactoFragment extends Fragment {
 
             try {
                 startActivity(Intent.createChooser(emailIntent, "Enviar correo..."));
+
+
+
+                // Redireccionar a Home después de 3 segundos
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Mostrar el Snackbar
+
+                        NavHostFragment.findNavController(ContactoFragment.this).navigate(R.id.nav_home);
+                        Snackbar.make(getView(), "Mensaje enviado con éxito", Snackbar.LENGTH_LONG).show();
+                    }
+                }, 3000);
+
             } catch (android.content.ActivityNotFoundException ex) {
                 // No hay cliente de correo instalado
+                Snackbar.make(getView(), "No se encontró una aplicación de correo", Snackbar.LENGTH_LONG).show();
             }
         }
     }

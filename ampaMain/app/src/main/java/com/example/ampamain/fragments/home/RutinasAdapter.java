@@ -1,4 +1,4 @@
-package com.example.ampamain.ui.home;
+package com.example.ampamain.fragments.home;
 
 
 import android.content.Context;
@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.ampamain.R;
 import com.example.ampamain.VideoPlayerActivity;
+import com.example.ampamain.modelos.Rutinas;
 
 import java.util.List;
 
