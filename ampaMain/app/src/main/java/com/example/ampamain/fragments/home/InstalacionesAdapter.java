@@ -44,10 +44,16 @@ public class InstalacionesAdapter extends RecyclerView.Adapter<InstalacionesAdap
         holder.descripcionTextView.setText(instalacion.getDescripcion());
         holder.costoTextView.setText("Costo: $" + instalacion.getCosto());
 
-        // Convertir byte[] a Bitmap y establecer en ImageView
+        // Convertir byte[] a Bitmap y establecer en ImageView si la imagen no es null
         byte[] image = instalacion.getFoto();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
-        holder.imagenImageView.setImageBitmap(bitmap);
+        if (image != null) {
+            Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+            holder.imagenImageView.setImageBitmap(bitmap);
+        } else {
+            // Puedes establecer una imagen por defecto o simplemente dejar el ImageView vacío
+            // Por ejemplo, para establecer una imagen por defecto:
+            holder.imagenImageView.setImageResource(R.drawable.canchapaddle);
+        }
 
         holder.reservarButton.setOnClickListener(v -> {
             Snackbar.make(v, "Reserva Generada para " + instalacion.getNombre(), Snackbar.LENGTH_SHORT).show();
