@@ -1,17 +1,22 @@
 package com.example.ampamain.fragments.home;
+
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ampamain.R;
 import com.example.ampamain.modelos.Instalacion;
 import com.google.android.material.snackbar.Snackbar;
+
 import java.util.List;
 
 public class InstalacionesAdapter extends RecyclerView.Adapter<InstalacionesAdapter.InstalacionViewHolder> {
@@ -38,7 +43,12 @@ public class InstalacionesAdapter extends RecyclerView.Adapter<InstalacionesAdap
         holder.nombreTextView.setText(instalacion.getNombre());
         holder.descripcionTextView.setText(instalacion.getDescripcion());
         holder.costoTextView.setText("Costo: $" + instalacion.getCosto());
-        holder.imagenImageView.setImageResource(instalacion.getImagenRecurso());
+
+        // Convertir byte[] a Bitmap y establecer en ImageView
+        byte[] image = instalacion.getFoto();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+        holder.imagenImageView.setImageBitmap(bitmap);
+
         holder.reservarButton.setOnClickListener(v -> {
             Snackbar.make(v, "Reserva Generada para " + instalacion.getNombre(), Snackbar.LENGTH_SHORT).show();
         });

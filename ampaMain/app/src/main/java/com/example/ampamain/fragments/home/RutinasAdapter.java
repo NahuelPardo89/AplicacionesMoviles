@@ -1,8 +1,9 @@
 package com.example.ampamain.fragments.home;
 
-
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +16,6 @@ import com.bumptech.glide.Glide;
 import com.example.ampamain.R;
 import com.example.ampamain.VideoPlayerActivity;
 import com.example.ampamain.modelos.Rutinas;
-
 import java.util.List;
 
 public class RutinasAdapter extends RecyclerView.Adapter<RutinasAdapter.RutinaViewHolder> {
@@ -39,18 +39,20 @@ public class RutinasAdapter extends RecyclerView.Adapter<RutinasAdapter.RutinaVi
     @Override
     public void onBindViewHolder(@NonNull RutinaViewHolder holder, int position) {
         Rutinas rutina = rutinasList.get(position);
-        holder.titleTextView.setText(rutina.getTitle());
-        holder.descriptionTextView.setText(rutina.getDescription());
+        holder.titleTextView.setText(rutina.getNombre());
+        holder.descriptionTextView.setText(rutina.getDescripcion());
 
-        // Cargar la imagen de previsualización
-        Glide.with(context).load(rutina.getPreviewImageUrl()).into(holder.previewImageView);
+        // Convertir byte[] a Bitmap y establecer en ImageView
+        byte[] image = rutina.getImgPreview();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+        Glide.with(context).load(bitmap).into(holder.previewImageView);
 
         // Configurar el escuchador del botón Reproducir
         holder.playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, VideoPlayerActivity.class);
-                intent.putExtra("videoUrl", rutina.getVideoUrl());
+                intent.putExtra("videoUrl", rutina.getVideourl());
                 context.startActivity(intent);
             }
         });

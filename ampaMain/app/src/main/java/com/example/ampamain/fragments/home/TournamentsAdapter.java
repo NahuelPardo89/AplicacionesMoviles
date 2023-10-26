@@ -1,12 +1,13 @@
 package com.example.ampamain.fragments.home;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,7 +23,8 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
     private final Context context;
 
     private final OnTournamentClickListener listener;
-    public TournamentsAdapter(Context context, List<Torneos> tournamentList,OnTournamentClickListener listener) {
+
+    public TournamentsAdapter(Context context, List<Torneos> tournamentList, OnTournamentClickListener listener) {
         this.context = context;
         this.tournamentList = tournamentList;
         this.listener = listener;
@@ -39,18 +41,19 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
     @Override
     public void onBindViewHolder(@NonNull TournamentViewHolder holder, int position) {
         Torneos tournament = tournamentList.get(position);
-        holder.titleTextView.setText(tournament.getTitle());
-        holder.descriptionTextView.setText(tournament.getDescription());
-        holder.imageView.setImageResource(tournament.getImageResource());
-        holder.inscribeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (listener != null) {
-                    listener.onTournamentClick(tournament);
-                }
+        holder.titleTextView.setText(tournament.getTitulo());
+        holder.descriptionTextView.setText(tournament.getDescripcion());
+
+        // Convertir byte[] a Bitmap y establecer en ImageView
+        byte[] image = tournament.getImg();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+        holder.imageView.setImageBitmap(bitmap);
+
+        holder.inscribeButton.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onTournamentClick(tournament);
             }
         });
-
     }
 
     @Override
@@ -62,7 +65,6 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
         final ImageView imageView;
         final TextView titleTextView;
         final TextView descriptionTextView;
-
         final Button inscribeButton;
 
         TournamentViewHolder(View itemView) {
@@ -73,6 +75,7 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
             inscribeButton = itemView.findViewById(R.id.inscribe_button);
         }
     }
+
     public interface OnTournamentClickListener {
         void onTournamentClick(Torneos torneo);
     }

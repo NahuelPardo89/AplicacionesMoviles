@@ -1,26 +1,37 @@
 package com.example.ampamain.modelos;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+@Entity(tableName = "Torneos")
 public class Torneos {
-    private final String title;
-    private final String description;
+    @PrimaryKey
+    @NonNull
+    private int idTorneos;
+    private String titulo;
+    private String descripcion;
+    private int costo;
+    private byte[] img; // Representando LONGBLOB como byte[]
 
-    private final int imageResource;
-
-    public Torneos(String title, String description, int imageResource) {
-        this.title = title;
-        this.description = description;
-        this.imageResource = imageResource;
+    public Torneos(int idTorneos, String titulo, String descripcion, int costo, byte[] img) {
+        this.idTorneos = idTorneos;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.costo = costo;
+        this.img = img;
     }
 
-    public String getTitle() {
-        return title;
-    }
+    // Getters
+    public int getIdTorneos() { return idTorneos; }
+    public String getTitulo() { return titulo; }
+    public String getDescripcion() { return descripcion; }
+    public int getCosto() { return costo; }
+    public byte[] getImg() { return img; }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public int getImageResource() {
-        return imageResource;
-    }
+    // Setters
+    public void setIdTorneos(int idTorneos) { this.idTorneos = idTorneos; }
+    public void setTitulo(String titulo) { this.titulo = titulo; }
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+    public void setCosto(int costo) { this.costo = costo; }
+    public void setImg(byte[] img) { this.img = img; }
 }
