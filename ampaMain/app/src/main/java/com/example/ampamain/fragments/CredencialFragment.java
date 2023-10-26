@@ -20,7 +20,7 @@ import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 
-public class CredencialFragment extends Fragment {
+public class  CredencialFragment extends Fragment {
 
     private PerfilViewModel perfilViewModel;
     private TextView dniTextView, nameTextView, apellidoTextView, isActiveTextView;
