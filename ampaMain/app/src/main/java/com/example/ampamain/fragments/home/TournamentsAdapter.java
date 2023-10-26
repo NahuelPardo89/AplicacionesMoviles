@@ -1,4 +1,6 @@
 package com.example.ampamain.fragments.home;
+
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,19 +17,16 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ampamain.R;
 import com.example.ampamain.modelos.Torneos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.TournamentViewHolder> {
 
-    private final List<Torneos> tournamentList;
+    private List<Torneos> torneosList = new ArrayList<>();
     private final Context context;
 
-    private final OnTournamentClickListener listener;
-
-    public TournamentsAdapter(Context context, List<Torneos> tournamentList, OnTournamentClickListener listener) {
+    public TournamentsAdapter(Context context) {
         this.context = context;
-        this.tournamentList = tournamentList;
-        this.listener = listener;
     }
 
     @NonNull
@@ -40,25 +39,36 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull TournamentViewHolder holder, int position) {
-        Torneos tournament = tournamentList.get(position);
-        holder.titleTextView.setText(tournament.getTitulo());
-        holder.descriptionTextView.setText(tournament.getDescripcion());
+        Torneos torneo = torneosList.get(position);
+        holder.titleTextView.setText(torneo.getTitulo());
+        holder.descriptionTextView.setText(torneo.getDescripcion());
 
         // Convertir byte[] a Bitmap y establecer en ImageView
-        byte[] image = tournament.getImg();
-        Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
-        holder.imageView.setImageBitmap(bitmap);
+        byte[] image = torneo.getImg();
+        if (image != null && image.length > 0) {
+            Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+            holder.imageView.setImageBitmap(bitmap);
+        } else {
+            holder.imageView.setImageResource(R.drawable.canchafutbol);  // Establece una imagen predeterminada si no hay imagen.
+        }
 
-        holder.inscribeButton.setOnClickListener(v -> {
-            if (listener != null) {
-                listener.onTournamentClick(tournament);
+        holder.inscribeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Aquí puedes manejar el evento de click del botón.
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return tournamentList.size();
+        return torneosList.size();
+    }
+
+    public void setTorneosList(List<Torneos> newTorneosList) {
+        this.torneosList.clear();
+        this.torneosList.addAll(newTorneosList);
+        notifyDataSetChanged();
     }
 
     static class TournamentViewHolder extends RecyclerView.ViewHolder {
@@ -74,9 +84,5 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
             descriptionTextView = itemView.findViewById(R.id.tournament_description);
             inscribeButton = itemView.findViewById(R.id.inscribe_button);
         }
-    }
-
-    public interface OnTournamentClickListener {
-        void onTournamentClick(Torneos torneo);
     }
 }

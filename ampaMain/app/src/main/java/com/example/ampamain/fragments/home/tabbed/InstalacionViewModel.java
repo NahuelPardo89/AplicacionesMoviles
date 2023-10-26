@@ -15,7 +15,7 @@ public class InstalacionViewModel extends ViewModel {
     private final AppDatabase db;
 
     public InstalacionViewModel() {
-        db = Room.databaseBuilder(MyApplication.getContext(), AppDatabase.class, "ampamain_db").build();
+        db = AppDatabase.getInstance(MyApplication.getContext());
         instalaciones = db.instalacionDao().getAllInstalaciones();
     }
 

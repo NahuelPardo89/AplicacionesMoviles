@@ -1,51 +1,46 @@
 package com.example.ampamain.fragments.home.tabbed;
+
+
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.google.android.material.snackbar.Snackbar;
-
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.ampamain.R;
-import com.example.ampamain.modelos.Torneos;
-import com.example.ampamain.fragments.home.TournamentsAdapter;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.google.android.material.snackbar.Snackbar;
+import com.example.ampamain.R;
+import com.example.ampamain.fragments.home.TournamentsAdapter;
 
 public class torneosFragment extends Fragment {
 
-    public torneosFragment() {
+    private TorneoViewModel torneosViewModel;
 
+    public torneosFragment() {
+        // Constructor vacío requerido
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // muestra el layout fragment torneos
         View view = inflater.inflate(R.layout.fragment_torneos, container, false);
 
-        //lista que simula la db
-        List<Torneos> torneosList = new ArrayList<>();
-        torneosList.add(new Torneos("Torneo 1", "Fecha: 21/09/2023, inscripciones hasta: 20/10/2023, Costo por equipo:$20000, para mas informacion contáctenos", R.drawable.torneo1));
-        torneosList.add(new Torneos("Torneo 2", "Fecha: 21/09/2023, inscripciones hasta: 20/10/2023, Costo por equipo:$20000, para mas informacion contáctenos", R.drawable.torneo2));
-        torneosList.add(new Torneos("Torneo 3", "Fecha: 21/09/2023, inscripciones hasta: 20/10/2023, Costo por equipo:$20000, para mas informacion contáctenos", R.drawable.torneo3));
-
-
         RecyclerView recyclerView = view.findViewById(R.id.tournaments_recycler_view);
-        TournamentsAdapter.OnTournamentClickListener listener = new TournamentsAdapter.OnTournamentClickListener() {
-            @Override
-            public void onTournamentClick(Torneos torneo) {
-                //Toast.makeText(getContext(), "Inscripción Generada para " + torneo.getTitle(), Toast.LENGTH_SHORT).show();
-                Snackbar.make(view, "Inscripción Generada para " + torneo.getTitle(), Snackbar.LENGTH_SHORT).show();
-            }
-        };
-        TournamentsAdapter adapter = new TournamentsAdapter(getContext(), torneosList, listener);
+        TournamentsAdapter adapter = new TournamentsAdapter(getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+
+        // Inicializar ViewModel
+        torneosViewModel = new ViewModelProvider(this).get(TorneoViewModel.class);
+
+        // Observar cambios en la lista de torneos y actualizar la UI
+        torneosViewModel.getAllTorneos().observe(getViewLifecycleOwner(), torneos -> {
+            if (torneos != null) {
+                adapter.setTorneosList(torneos);
+            }
+        });
 
         return view;
     }

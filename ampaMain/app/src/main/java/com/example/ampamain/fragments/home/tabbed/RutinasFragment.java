@@ -35,12 +35,11 @@ public class RutinasFragment extends Fragment {
         rutinaViewModel = new ViewModelProvider(this).get(RutinasViewModel.class);
 
         // Observar los cambios en la lista de rutinas
-        rutinaViewModel.getRutinas().observe(getViewLifecycleOwner(), rutinas -> {
+        rutinaViewModel. getAllRutinas().observe(getViewLifecycleOwner(), rutinas -> {
             // Actualizar la interfaz de usuario cuando la lista de rutinas cambie
             adapter.setRutinasList(rutinas);
         });
 
         return view;
     }
-}
 }

@@ -1,11 +1,13 @@
 package com.example.ampamain.database.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import com.example.ampamain.modelos.Rutinas;
 import com.example.ampamain.modelos.Torneos;
 
 import java.util.List;
@@ -22,8 +24,9 @@ public interface TorneosDao {
     void delete(Torneos torneo);
 
     @Query("SELECT * FROM torneos")
-    List<Torneos> getAllTorneos();
+    LiveData<List<Torneos>> getAllTorneos();
 
     @Query("SELECT * FROM torneos WHERE idTorneos = :id")
-    Torneos getTorneoById(long id);
+    LiveData<Torneos> getTorneoById(long id);
+
 }
