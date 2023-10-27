@@ -15,7 +15,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ampamain.R;
+import com.example.ampamain.database.AppDatabase;
+import com.example.ampamain.modelos.InscripcionTorneo;
 import com.example.ampamain.modelos.Torneos;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +60,23 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
         holder.inscribeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Aquí puedes manejar el evento de click del botón.
+                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                if (user != null) {
+                    String uid = user.getUid();
+
+                    // Crear un objeto InscripcionTorneo
+                    InscripcionTorneo inscripcion = new InscripcionTorneo(1,"userid");
+
+                    // Insertar en la base de datos
+                    new Thread(() -> {
+                        AppDatabase.getInstance(context).inscripcionTorneoDao().insert(inscripcion);
+                    }).start();
+
+                    Snackbar.make(v, "Inscripción realizada con éxito!", Snackbar.LENGTH_SHORT).show();
+                } else {
+                    // El usuario no está logueado
+                    Snackbar.make(v, "Debes estar logueado para inscribirte", Snackbar.LENGTH_SHORT).show();
+                }
             }
         });
     }

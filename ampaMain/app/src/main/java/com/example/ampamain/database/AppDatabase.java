@@ -17,7 +17,7 @@ import com.example.ampamain.modelos.Rutinas;
 import com.example.ampamain.modelos.Torneos;
 import com.example.ampamain.MyApplication; // Importante: Importar la clase MyApplication
 
-@Database(entities = {Torneos.class, InscripcionTorneo.class, Instalacion.class, Reserva.class, Rutinas.class}, version = 1)
+@Database(entities = {Torneos.class, InscripcionTorneo.class, Instalacion.class, Reserva.class, Rutinas.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;

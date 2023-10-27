@@ -6,26 +6,24 @@ import androidx.room.PrimaryKey;
 
 @Entity(tableName = "InscripcionTorneo")
 public class InscripcionTorneo {
-    @PrimaryKey
-    @NonNull
-    private int idInscripcionTorneo;
+    @PrimaryKey(autoGenerate = true)
+    private Long idInscripcionTorneo;
     private int torneosIdTorneos;
     @NonNull
     private String userProfileUserId; // UID de Firebase
 
-    public InscripcionTorneo(int idInscripcionTorneo, int torneosIdTorneos, @NonNull String userProfileUserId) {
-        this.idInscripcionTorneo = idInscripcionTorneo;
+    public InscripcionTorneo( int torneosIdTorneos, @NonNull String userProfileUserId) {
         this.torneosIdTorneos = torneosIdTorneos;
         this.userProfileUserId = userProfileUserId;
     }
 
     // Getters
-    public int getIdInscripcionTorneo() { return idInscripcionTorneo; }
+    public Long getIdInscripcionTorneo() { return idInscripcionTorneo; }
     public int getTorneosIdTorneos() { return torneosIdTorneos; }
     public String getUserProfileUserId() { return userProfileUserId; }
 
     // Setters
-    public void setIdInscripcionTorneo(int idInscripcionTorneo) { this.idInscripcionTorneo = idInscripcionTorneo; }
+    public void setIdInscripcionTorneo(Long idInscripcionTorneo) { this.idInscripcionTorneo = idInscripcionTorneo; }
     public void setTorneosIdTorneos(int torneosIdTorneos) { this.torneosIdTorneos = torneosIdTorneos; }
     public void setUserProfileUserId(String userProfileUserId) { this.userProfileUserId = userProfileUserId; }
 }
