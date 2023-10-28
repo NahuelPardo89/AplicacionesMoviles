@@ -13,11 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.ampamain.R;
 import com.example.ampamain.database.AppDatabase;
 import com.example.ampamain.database.dao.TorneosDao;
+import com.example.ampamain.fragments.home.tabbed.TorneoViewModel;
 import com.example.ampamain.modelos.InscripcionTorneo;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.util.List;
 
 public class InscripcionTorneosFragment extends Fragment implements InscripcionesAdapter.OnInscripcionListener {
 
     private InscripcionTorneosViewModel inscripcionesViewModel;
+    private TorneoViewModel torneosViewModel;
     private InscripcionesAdapter adapter;
 
     @Override
@@ -31,8 +37,9 @@ public class InscripcionTorneosFragment extends Fragment implements Inscripcione
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        // Inicializar ViewModel
+        // Inicializar ViewModels
         inscripcionesViewModel = new ViewModelProvider(this).get(InscripcionTorneosViewModel.class);
+        torneosViewModel = new ViewModelProvider(requireActivity()).get(TorneoViewModel.class); // Inicializa TorneoViewModel
 
         // Observar cambios en la lista de inscripciones y actualizar la UI
         inscripcionesViewModel.getInscripciones().observe(getViewLifecycleOwner(), inscripciones -> {
@@ -46,10 +53,15 @@ public class InscripcionTorneosFragment extends Fragment implements Inscripcione
 
     @Override
     public void onDeleteInscripcion(InscripcionTorneo inscripcion) {
-        // Aquí, puedes manejar la eliminación de una inscripción, por ejemplo:
         new Thread(() -> {
             AppDatabase.getInstance(getContext()).inscripcionTorneoDao().delete(inscripcion);
-            // Actualizar la lista de inscripciones en el ViewModel o directamente en el adaptador
+
+            // Actualiza la lista de inscripciones en TorneoViewModel
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user != null) {
+                List<Long> inscripciones = AppDatabase.getInstance(getContext()).inscripcionTorneoDao().getInscripcionByUser(user.getUid());
+                torneosViewModel.updateTorneosInscritos(inscripciones);
+            }
         }).start();
     }
 }

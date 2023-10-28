@@ -36,6 +36,10 @@ public class TorneoViewModel extends ViewModel {
         return torneosInscritos;
     }
 
+    public void updateTorneosInscritos(List<Long> inscripciones) {
+        torneosInscritos.postValue(inscripciones);
+    }
+
 
     public LiveData<List<Torneos>> getAllTorneos() {
         return torneos;

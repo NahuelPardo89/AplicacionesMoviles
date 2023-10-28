@@ -40,6 +40,6 @@
     <fragment
         android:id="@+id/nav_inscripcionTornoes"
         android:name="com.example.ampamain.fragments.InscripcionTorneosFragment"
-        android:label="fragment_inscripcion_tornoes"
+        android:label="Mis Inscripciones"
         tools:layout="@layout/fragment_inscripcion_torneos" />
 </navigation>
