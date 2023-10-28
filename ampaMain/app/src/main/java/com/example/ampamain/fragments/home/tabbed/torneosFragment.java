@@ -42,6 +42,13 @@ public class torneosFragment extends Fragment {
             }
         });
 
+        // Observar cambios en torneosInscritos y actualizar la UI
+        torneosViewModel.getTorneosInscritos().observe(getViewLifecycleOwner(), torneosInscritos -> {
+            if (torneosInscritos != null) {
+                adapter.setTorneosInscritos(torneosInscritos);
+            }
+        });
+
         return view;
     }
 }

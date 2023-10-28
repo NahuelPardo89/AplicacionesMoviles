@@ -4,6 +4,8 @@ package com.example.ampamain.fragments.home;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,9 +27,11 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.TournamentViewHolder> {
 
     private List<Torneos> torneosList = new ArrayList<>();
+    private List<Long> torneosInscritos = new ArrayList<>();
     private final Context context;
 
     public TournamentsAdapter(Context context) {
@@ -57,28 +61,43 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
             holder.imageView.setImageResource(R.drawable.canchafutbol);  // Establece una imagen predeterminada si no hay imagen.
         }
 
-        holder.inscribeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                if (user != null) {
-                    String uid = user.getUid();
+        // Check if the tournament is in the list of subscribed tournaments
+        if (torneosInscritos.contains(torneo.getIdTorneos())) {
+            holder.inscribeButton.setText("Inscripto");
+            holder.inscribeButton.setEnabled(false);  // Disable the button
+        } else {
+            holder.inscribeButton.setText("Inscribirse");
+            holder.inscribeButton.setEnabled(true);
 
-                    // Crear un objeto InscripcionTorneo
-                    InscripcionTorneo inscripcion = new InscripcionTorneo(1,"userid");
+            holder.inscribeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if (user != null) {
+                        String uid = user.getUid();
 
-                    // Insertar en la base de datos
-                    new Thread(() -> {
-                        AppDatabase.getInstance(context).inscripcionTorneoDao().insert(inscripcion);
-                    }).start();
+                        // Crear un objeto InscripcionTorneo
+                        InscripcionTorneo inscripcion = new InscripcionTorneo(torneo.getIdTorneos(), uid);
 
-                    Snackbar.make(v, "Inscripción realizada con éxito!", Snackbar.LENGTH_SHORT).show();
-                } else {
-                    // El usuario no está logueado
-                    Snackbar.make(v, "Debes estar logueado para inscribirte", Snackbar.LENGTH_SHORT).show();
+                        // Insertar en la base de datos
+                        new Thread(() -> {
+                            AppDatabase.getInstance(context).inscripcionTorneoDao().insert(inscripcion);
+
+                            // Actualizar la lista y la UI en el hilo principal
+                            new Handler(Looper.getMainLooper()).post(() -> {
+                                torneosInscritos.add(torneo.getIdTorneos());
+                                notifyDataSetChanged();  // esto refrescará el RecyclerView
+                                Snackbar.make(v, "Inscripción realizada con éxito!", Snackbar.LENGTH_SHORT).show();
+                            });
+                        }).start();
+
+                    } else {
+                        //Error en el registro de inscripcion
+                        Snackbar.make(v, "Hubo un error, por favor intentelo mas tarde", Snackbar.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     @Override
@@ -89,6 +108,12 @@ public class TournamentsAdapter extends RecyclerView.Adapter<TournamentsAdapter.
     public void setTorneosList(List<Torneos> newTorneosList) {
         this.torneosList.clear();
         this.torneosList.addAll(newTorneosList);
+        notifyDataSetChanged();
+    }
+
+    public void setTorneosInscritos(List<Long> torneosInscritos) {
+        this.torneosInscritos.clear();
+        this.torneosInscritos.addAll(torneosInscritos);
         notifyDataSetChanged();
     }
 

@@ -10,6 +10,8 @@ import com.example.ampamain.modelos.InscripcionTorneo;
 
 import java.util.List;
 
+
+// CRUD INSCRIPCIONES
 @Dao
 public interface InscripcionTorneoDao {
     @Insert
@@ -26,4 +28,9 @@ public interface InscripcionTorneoDao {
 
     @Query("SELECT * FROM inscripciontorneo WHERE idInscripcionTorneo = :id")
     InscripcionTorneo getInscripcionById(long id);
+
+    @Query("SELECT torneosIdTorneos FROM inscripciontorneo WHERE UserId = :userId")
+    List<Long> getInscripcionByUser(String userId);
+
+
 }

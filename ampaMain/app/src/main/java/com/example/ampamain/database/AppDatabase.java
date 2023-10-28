@@ -15,9 +15,10 @@ import com.example.ampamain.modelos.Instalacion;
 import com.example.ampamain.modelos.Reserva;
 import com.example.ampamain.modelos.Rutinas;
 import com.example.ampamain.modelos.Torneos;
-import com.example.ampamain.MyApplication; // Importante: Importar la clase MyApplication
+import com.example.ampamain.MyApplication;
 
-@Database(entities = {Torneos.class, InscripcionTorneo.class, Instalacion.class, Reserva.class, Rutinas.class}, version = 2)
+// implementacion de base de datos SQLITE Utilizando la libreria Room
+@Database(entities = {Torneos.class, InscripcionTorneo.class, Instalacion.class, Reserva.class, Rutinas.class}, version = 5)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;
@@ -32,8 +33,8 @@ public abstract class AppDatabase extends RoomDatabase {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             AppDatabase.class, "ampa_db")
                     .fallbackToDestructiveMigration()
-                    .addCallback(MyApplication.callback)  // Añadir el callback aquí
-                    .allowMainThreadQueries()  // Permitir consultas en el hilo principal (Solo para pruebas)
+                    .addCallback(MyApplication.callback)
+                    .allowMainThreadQueries()
                     .build();
         }
         return INSTANCE;
