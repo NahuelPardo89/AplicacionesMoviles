@@ -27,6 +27,6 @@ public interface TorneosDao {
     LiveData<List<Torneos>> getAllTorneos();
 
     @Query("SELECT * FROM torneos WHERE idTorneos = :id")
-    LiveData<Torneos> getTorneoById(long id);
+    Torneos getTorneoById(long id);
 
 }
