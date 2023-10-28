@@ -8,23 +8,33 @@ import androidx.room.PrimaryKey;
 public class Reserva {
     @PrimaryKey(autoGenerate = true)
     private Long idReserva;
-    private int instalacionIdInstalacion;
+    private int IdInstalacion;
     @NonNull
-    private String userProfileUserId; // UID de Firebase
+    private String UserId; // UID de Firebase
+    private String fecha;
+    private String hora;
 
-    public Reserva( int instalacionIdInstalacion, @NonNull String userProfileUserId) {
 
-        this.instalacionIdInstalacion = instalacionIdInstalacion;
-        this.userProfileUserId = userProfileUserId;
+    public Reserva() {}
+
+    public Reserva(int IdInstalacion, @NonNull String UserId, String fecha, String hora) {
+        this.IdInstalacion = IdInstalacion;
+        this.UserId = UserId;
+        this.fecha = fecha;
+        this.hora = hora;
     }
 
     // Getters
     public Long getIdReserva() { return idReserva; }
-    public int getInstalacionIdInstalacion() { return instalacionIdInstalacion; }
-    public String getUserProfileUserId() { return userProfileUserId; }
+    public int getIdInstalacion() { return IdInstalacion; }
+    public String getUserId() { return UserId; }
+    public String getFecha() { return fecha; }
+    public String getHora() { return hora; }
 
     // Setters
     public void setIdReserva(Long idReserva) { this.idReserva = idReserva; }
-    public void setInstalacionIdInstalacion(int instalacionIdInstalacion) { this.instalacionIdInstalacion = instalacionIdInstalacion; }
-    public void setUserProfileUserId(String userProfileUserId) { this.userProfileUserId = userProfileUserId; }
+    public void setIdInstalacion(int IdInstalacion) { this.IdInstalacion = IdInstalacion; }
+    public void setUserId(String UserId) { this.UserId = UserId; }
+    public void setFecha(String fecha) { this.fecha = fecha; }
+    public void setHora(String hora) { this.hora = hora; }
 }

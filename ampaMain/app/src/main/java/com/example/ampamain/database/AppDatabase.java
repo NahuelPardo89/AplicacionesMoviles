@@ -18,7 +18,7 @@ import com.example.ampamain.modelos.Torneos;
 import com.example.ampamain.MyApplication;
 
 // implementacion de base de datos SQLITE Utilizando la libreria Room
-@Database(entities = {Torneos.class, InscripcionTorneo.class, Instalacion.class, Reserva.class, Rutinas.class}, version = 5)
+@Database(entities = {Torneos.class, InscripcionTorneo.class, Instalacion.class, Reserva.class, Rutinas.class}, version = 6)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static AppDatabase INSTANCE;

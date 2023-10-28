@@ -11,11 +11,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ampamain.R;
+import com.example.ampamain.database.AppDatabase;
+import com.example.ampamain.fragments.home.tabbed.ReservaDialogFragment;
 import com.example.ampamain.modelos.Instalacion;
+import com.example.ampamain.modelos.Reserva;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -56,8 +61,33 @@ public class InstalacionesAdapter extends RecyclerView.Adapter<InstalacionesAdap
         }
 
         holder.reservarButton.setOnClickListener(v -> {
-            Snackbar.make(v, "Reserva Generada para " + instalacion.getNombre(), Snackbar.LENGTH_SHORT).show();
+            ReservaDialogFragment.ReservaListener listener = (instalacionId, fecha, hora) -> {
+                // Crear una nueva reserva
+                Reserva nuevaReserva = new Reserva(instalacionId, FirebaseAuth.getInstance().getCurrentUser().getUid(), fecha, hora);
+
+                // Guardar en la base de datos en un hilo secundario
+                new Thread(() -> {
+                    try {
+                        AppDatabase db = AppDatabase.getInstance(context);
+                        db.reservaDao().insert(nuevaReserva);
+
+                        // Mostrar Snackbar de éxito en el hilo principal
+                        ((FragmentActivity) context).runOnUiThread(() -> {
+                            Snackbar.make(v, "Reservado con éxito", Snackbar.LENGTH_SHORT).show();
+                        });
+                    } catch (Exception e) {
+                        // Mostrar Snackbar de error en el hilo principal
+                        ((FragmentActivity) context).runOnUiThread(() -> {
+                            Snackbar.make(v, "Error al reservar", Snackbar.LENGTH_SHORT).show();
+                        });
+                    }
+                }).start();
+            };
+
+            ReservaDialogFragment dialog = new ReservaDialogFragment(instalacion.getIdInstalacion(), listener);
+            dialog.show(((FragmentActivity) context).getSupportFragmentManager(), "ReservaDialog");
         });
+
     }
 
     @Override
