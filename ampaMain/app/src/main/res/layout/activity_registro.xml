@@ -32,6 +32,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="@string/Email"
+                android:labelFor="@id/inputEmail_Registro"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
@@ -60,7 +61,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="Nombre y Apellido"
+                android:text="@string/NombreApellido"
+                android:labelFor="@id/inputNombre_Registro"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
@@ -78,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:autofillHints="emailAddress"
                     android:ems="10"
-                    android:hint="Ingrese nombre y apellido"
+                    android:hint="@string/IngreseNombreApellido"
                     android:inputType="text"
 
                     android:textSize="20sp" />
@@ -92,6 +94,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="@string/Password"
+                android:labelFor="@id/inputPassword1_registro"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
@@ -121,7 +124,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="Repita su Contraseña"
+                android:text="@string/RepitaPassword"
+                android:labelFor="@id/inputPassword2_registro"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 

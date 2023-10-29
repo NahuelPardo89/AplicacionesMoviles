@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:scaleType="centerCrop"
+            android:contentDescription="@string/ImgInstalacion"
             tools:src="@tools:sample/backgrounds/scenic" />
 
         <TextView
@@ -24,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Nombre Instalación"
+            android:text="@string/NombreInstalacion"
             android:textStyle="bold"
             android:textSize="16sp" />
 
@@ -33,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Descripción Instalación"
+            android:text="@string/DescInstalacion"
             android:textSize="14sp" />
 
         <TextView
@@ -41,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Costo: $0"
+            android:text="@string/CostoInstalacion"
             android:textSize="14sp" />
 
         <Button
@@ -49,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Reservar" />
+            android:text="@string/btnReservar" />
 
     </LinearLayout>
 
