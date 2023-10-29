@@ -8,12 +8,14 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
+    <!-- Incluye la barra de la aplicación principal -->
     <include
         android:id="@+id/app_bar_main"
         layout="@layout/app_bar_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+     <!-- Vista de navegación lateral (NavigationView) para el menú -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
