@@ -20,25 +20,27 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
+                android:contentDescription="@string/ImagenPerfil"
                 android:src="@drawable/ic_launcher_foreground" />
 
             <TextView
                 android:id="@+id/user_uid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="UID: " />
+                android:text="@string/UID" />
 
             <TextView
                 android:id="@+id/user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nombre: " />
+                android:text="@string/NombreApellido" />
 
             <ImageView
                 android:id="@+id/user_qr_code"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
+                android:contentDescription="@string/qr"
                 android:layout_marginTop="20dp" />
 
         </LinearLayout>

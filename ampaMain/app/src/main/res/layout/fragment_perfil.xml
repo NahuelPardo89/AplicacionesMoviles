@@ -25,14 +25,14 @@
                 android:layout_width="200dp"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:contentDescription="imagen de perfil"
+                android:contentDescription="@string/ImagenPerfil"
                 android:src="@drawable/ic_launcher_foreground" />
 
             <TextView
                 android:id="@+id/labelNombre_perfil"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="Nombre:"
+                android:text="@string/NombreApellido"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -41,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="12dp"
-                android:text="Nombre"
+                android:text="@string/NombreApellido"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="12dp"
-                android:text="Email:"
+                android:text="@string/Email"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="Email"
+                android:text="@string/Email"
                 android:textAlignment="center"
                 android:textSize="20sp" />
 
@@ -69,7 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
-                android:text="Editar" />
+                android:text="@string/btnEditar" />
 
         </LinearLayout>
     </ScrollView>

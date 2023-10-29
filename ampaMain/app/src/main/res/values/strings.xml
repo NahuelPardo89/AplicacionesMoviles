@@ -1,16 +1,52 @@
 <resources>
     <string name="app_name">ampaMain</string>
-    <string name="logo"> AMPA COMPLEJO DEPORTIVO </string>
+    <string name="logo"> LOGO AMPA COMPLEJO DEPORTIVO </string>
 
     <string name="btnLogin">Iniciar Sesión</string>
     <string name="btnInscripcion">Inscribirse</string>
+    <string name="btnReservar">Reservar</string>
+    <string name="btnCancelReservar">Cancelar Reserva</string>
+    <string name="btnReproducir">Reproducir</string>
+    <string name="btnEditar">Editar</string>
+
+    <string name="btnGuardar">Guardar</string>
+
+    <string name="RutinaTitulo">Titulo Rutina</string>
+    <string name="RutinaDesc">Descripción Rutina</string>
+
+    <string name="RutinaImg">Imagen de Rutina</string>
+
+    <string name="TorneoImg">Imagen de Torneo</string>
+    <string name="TorneoTitulo">Titulo de Torneo</string>
+    <string name="TorneoDesc">Descripción de Torneo</string>
+
+
+    <string name="PasswordActual">Contraseña Actual</string>
+    <string name="PasswordNew">Nueva Contraseña</string>
+    <string name="HintPasswordChange1">Ingrese su contraseña actual</string>
 
     <string name="Email">Email</string>
     <string name="Password">Contraseña</string>
+    <string name="RepitaPassword">Repita su Contraseña</string>
+
+    <string name="Fecha">Fecha</string>
+    <string name="Hora">Hora</string>
+
+    <string name="ImgInstalacion">Imagen Instalación</string>
+
+    <string name="ImgTorneo">Imagen Torneo</string>
+    <string name="ImgRutina">Imagen Rutina</string>
+
+    <string name="NombreInstalacion">Nombre Instalación</string>
+    <string name="DescInstalacion">Descripción Instalación</string>
+    <string name="CostoInstalacion">Costo Instalación</string>
+
     <string name="PlaceholderEmail">Ingrese su Email</string>
     <string name="AnchorRegister">¿No tienes cuenta?</string>
     <string name="Registrarse">Registrarse</string>
     <string name="PlaceholderPassword">Ingrese su Contraseña</string>
+
+    <string name="PlaceholderPasswordRepeat">Repita su Contraseña</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -23,6 +59,16 @@
     <string name="menu_change_password">Cambiar Contraseña</string>
     <string name="menu_contacto">Contacto</string>
     <string name="menu_credencial">Credencial</string>
+    <string name="NombreApellido">Nombre y Apellido</string>
+    <string name="IngreseNombreApellido">Ingrese Nombre y Apellido</string>
+
+    <string name="ImagenPerfil">Imagen de Perfil</string>
+    <string name="qr">Código QR</string>
+    <string name="IconCambiarImg">Cambiar imagen de perfil</string>
+
+
+    <string name="UID">UID</string>
+
 
 
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -27,7 +27,7 @@
                     android:id="@+id/profileImageView_edit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:contentDescription="imagen de perfil"
+                    android:contentDescription="@string/ImagenPerfil"
                     android:src="@drawable/ic_launcher_background" />
 
                 <ImageView
@@ -36,7 +36,7 @@
                     android:layout_height="60dp"
                     android:layout_gravity="top|end"
                     android:background="?android:selectableItemBackground"
-                    android:contentDescription="Cambiar imagen de perfil"
+                    android:contentDescription="@string/IconCambiarImg"
                     android:padding="4dp"
                     android:src="@drawable/iconedit"
                     android:clickable="true"
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="Nombre y Apellido"
+                android:text="@string/NombreApellido"
                 android:labelFor="@id/nameEditText_edit"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
@@ -75,11 +75,7 @@
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
 
-            <!-- Email input -->
 
             <TextView
                 android:id="@+id/labelEmail_registro"
@@ -110,12 +106,12 @@
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Update button -->
+
             <Button
                 android:id="@+id/updateButton_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Guardar" />
+                android:text="@string/btnGuardar" />
 
         </LinearLayout>
     </ScrollView>

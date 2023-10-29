@@ -7,9 +7,7 @@
     android:layout_margin="8dp"
     app:cardCornerRadius="8dp">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -20,7 +18,7 @@
             android:id="@+id/rutina_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rutina Title"
+            android:text="@string/RutinaTitulo"
             android:textStyle="bold"
             android:textSize="16sp"
             android:layout_gravity="center_horizontal" />
@@ -29,7 +27,7 @@
             android:id="@+id/rutina_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rutina Description"
+            android:text="@string/RutinaDesc"
             android:textSize="14sp"
             android:layout_marginTop="4dp"
             android:layout_gravity="center_horizontal" />
@@ -38,7 +36,7 @@
             android:id="@+id/rutina_preview_image"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:layout_below="@id/rutina_title"
+            android:contentDescription="@string/ImgRutina"
             android:layout_marginTop="8dp"
             android:scaleType="centerCrop" />
 
@@ -46,8 +44,7 @@
             android:id="@+id/rutina_play_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reproducir"
-            android:layout_gravity="center_horizontal"
+            android:text="@string/btnReproducir"
             android:layout_marginTop="8dp" />
 
     </LinearLayout>

@@ -7,7 +7,6 @@
     android:layout_centerVertical="true"
     tools:context=".login">
 
-    <!-- Un ScrollView para permitir desplazamiento si el contenido no cabe en la pantalla -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,13 +14,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- Un LinearLayout vertical que contiene elementos de interfaz de usuario -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-             <!-- Un ImageView para mostrar el logotipo, propiedad contentDescription para mejor accesibilidad -->
             <ImageView
                 android:id="@+id/logo"
                 android:layout_width="match_parent"
@@ -29,7 +26,6 @@
                 android:contentDescription="@string/logo"
                 android:src="@drawable/logo" />
 
-             <!-- Etiqueta para mostrar "Email" -->
             <TextView
                 android:id="@+id/labelEmail"
                 android:layout_width="match_parent"
@@ -37,10 +33,10 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="@string/Email"
+                android:labelFor="@id/inputEmail_login"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
-             <!-- TextInputLayout para la entrada de correo electrónico -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputEmail_login_layout"
                 android:layout_width="match_parent"
@@ -49,7 +45,6 @@
                 android:layout_marginRight="20dp"
                 app:errorEnabled="true">
 
-                <!-- TextInputEditText para la entrada de correo electrónico -->
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputEmail_login"
                     android:layout_width="match_parent"
@@ -58,27 +53,22 @@
                     android:ems="10"
                     android:hint="@string/PlaceholderEmail"
                     android:inputType="textEmailAddress"
-                    android:textColor="#AAA9A9"
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Espacio en blanco para separación -->
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
 
-            <!-- Etiqueta para mostrar "Password" -->
-             <TextView
-                android:id="@+id/labelEmail2"
+
+            <TextView
+                android:id="@+id/labelPasword_login"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="@string/Password"
                 android:textColor="@color/white"
+                android:labelFor="@id/inputPassword_Login"
                 android:textSize="20sp" />
 
-            <!-- TextInputLayout para la entrada de contraseña -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputPassword_Login_layout"
                 android:layout_width="match_parent"
@@ -88,7 +78,6 @@
                 app:errorEnabled="true"
                 app:passwordToggleEnabled="true">
 
-                 <!-- TextInputEditText para la entrada de contraseña -->
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputPassword_Login"
                     android:layout_width="match_parent"
@@ -100,43 +89,28 @@
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-             <!-- Espacio en blanco para separación -->
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="64dp" />
 
-            <!-- Botón de inicio de sesión -->
+
+
             <Button
                 android:id="@+id/btnLogin_Login"
-                style="@style/Widget.Material3.Button.IconButton.Outlined"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:backgroundTint="#00F3EEEE"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="@string/btnLogin"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                app:cornerRadius="10dp"
-                app:strokeColor="#EDEBEB"
-                app:strokeWidth="2dp" />
+                android:textAlignment="center" />
 
-            <!-- Espacio en blanco para separación -->
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="20dp" />
 
-            <!-- Un LinearLayout horizontal para la opción de registro -->
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <!-- Etiqueta que dice "Registrarse" -->
                 <TextView
                     android:id="@+id/anchorRegister"
                     android:layout_width="wrap_content"
@@ -147,7 +121,7 @@
                     android:textAlignment="center"
                     android:textColor="@color/white"
                     android:textSize="20sp" />
-                <!-- Botón para registrarse -->
+
                 <Button
                     android:id="@+id/btnRegistrarse_login"
                     style="@style/Widget.Material3.Button.TextButton"

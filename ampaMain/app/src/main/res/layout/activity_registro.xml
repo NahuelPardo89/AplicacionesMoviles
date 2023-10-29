@@ -5,18 +5,16 @@
     android:layout_height="match_parent"
     tools:context=".Registro">
 
-     <!-- ScrollView para permitir el desplazamiento si el contenido no cabe en la pantalla -->
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
 
-        <!-- Un LinearLayout vertical que contiene elementos de la interfaz de usuario -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- ImageView para mostrar el logotipo, contentDescription para mejor accesibilidad-->
             <ImageView
                 android:id="@+id/logo_registro"
                 android:layout_width="match_parent"
@@ -27,7 +25,6 @@
                 android:cropToPadding="true"
                 app:srcCompat="@drawable/logocrop" />
 
-            <!-- Etiqueta para mostrar "Email" -->
             <TextView
                 android:id="@+id/labelEmail_registro"
                 android:layout_width="match_parent"
@@ -35,10 +32,10 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="@string/Email"
+                android:labelFor="@id/inputEmail_Registro"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
-             <!-- TextInputLayout para la entrada de correo electrónico -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputEmail_registro_layout"
                 android:layout_width="match_parent"
@@ -47,7 +44,6 @@
                 android:layout_marginRight="20dp"
                 app:errorEnabled="true">
 
-                <!-- TextInputEditText para la entrada de correo electrónico -->
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputEmail_Registro"
                     android:layout_width="match_parent"
@@ -59,18 +55,17 @@
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Etiqueta para mostrar "Nombre y Apellido" -->
             <TextView
                 android:id="@+id/labelNombre_registro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="Nombre y Apellido"
+                android:text="@string/NombreApellido"
+                android:labelFor="@id/inputNombre_Registro"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
-            <!-- TextInputLayout para la entrada de nombre y apellido -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputNombre_registro_layout"
                 android:layout_width="match_parent"
@@ -79,25 +74,19 @@
                 android:layout_marginRight="20dp"
                 app:errorEnabled="true">
 
-                <!-- TextInputEditText para la entrada de nombre y apellido -->
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputNombre_Registro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:autofillHints="emailAddress"
                     android:ems="10"
-                    android:hint="Ingrese nombre y apellido"
+                    android:hint="@string/IngreseNombreApellido"
                     android:inputType="text"
 
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
-            
-            <!-- Espacio en blanco para separación -->
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
 
-             <!-- Etiqueta para mostrar "Contraseña" -->   
+
             <TextView
                 android:id="@+id/labelPassword1"
                 android:layout_width="match_parent"
@@ -105,10 +94,10 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:text="@string/Password"
+                android:labelFor="@id/inputPassword1_registro"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
-             <!-- TextInputLayout para la entrada de la primera contraseña -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputPassword_register_layout"
                 android:layout_width="match_parent"
@@ -118,7 +107,6 @@
                 app:errorEnabled="true"
                 app:passwordToggleEnabled="true">
 
-                <!-- TextInputEditText para la entrada de la primera contraseña -->
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputPassword1_registro"
                     android:layout_width="match_parent"
@@ -129,23 +117,18 @@
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-             <!-- Espacio en blanco para separación -->
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
-            
-             <!-- Etiqueta para mostrar "Repita su Contraseña" -->
+
             <TextView
                 android:id="@+id/labelPassword2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:text="Repita su Contraseña"
+                android:text="@string/RepitaPassword"
+                android:labelFor="@id/inputPassword2_registro"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
-            <!-- TextInputLayout para la entrada de la segunda contraseña -->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputPassword2_register_layout"
                 android:layout_width="match_parent"
@@ -155,7 +138,6 @@
                 app:errorEnabled="true"
                 app:passwordToggleEnabled="true">
 
-                <!-- TextInputEditText para la entrada de la segunda contraseña -->
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputPassword2_registro"
                     android:layout_width="match_parent"
@@ -167,22 +149,17 @@
             </com.google.android.material.textfield.TextInputLayout>
 
 
-              <!-- Botón para realizar el registro -->
+
             <Button
                 android:id="@+id/btn_registrar_registro"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:backgroundTint="#00F3EEEE"
+
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="@string/menu_registrar"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:strokeWidth="2dp"
-                tools:cornerRadius="10dp"
-                tools:strokeColor="#EDEBEB" />
+                android:textAlignment="center"/>
 
 
 
