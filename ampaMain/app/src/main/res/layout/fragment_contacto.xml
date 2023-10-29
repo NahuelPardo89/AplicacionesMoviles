@@ -116,16 +116,11 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:backgroundTint="#00F3EEEE"
+
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="@string/botonEnviar"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                app:cornerRadius="10dp"
-                app:strokeColor="#EDEBEB"
-                app:strokeWidth="2dp" />
+                android:textAlignment="center"/>
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

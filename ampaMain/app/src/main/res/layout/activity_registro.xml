@@ -84,9 +84,7 @@
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+
             <TextView
                 android:id="@+id/labelPassword1"
                 android:layout_width="match_parent"
@@ -116,9 +114,7 @@
                     android:textSize="20sp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="15dp" />
+
             <TextView
                 android:id="@+id/labelPassword2"
                 android:layout_width="match_parent"
@@ -155,16 +151,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:backgroundTint="#00F3EEEE"
+
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:text="@string/menu_registrar"
-                android:textAlignment="center"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                app:strokeWidth="2dp"
-                tools:cornerRadius="10dp"
-                tools:strokeColor="#EDEBEB" />
+                android:textAlignment="center"/>
 
 
 

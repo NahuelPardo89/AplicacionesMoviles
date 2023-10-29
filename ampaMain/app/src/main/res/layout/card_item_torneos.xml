@@ -45,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/tournament_description"
             android:layout_marginTop="8dp"
+            android:gravity="center_horizontal"
             android:text="@string/btnInscripcion"
             android:theme="@style/Theme.AmpaMain" />
 
