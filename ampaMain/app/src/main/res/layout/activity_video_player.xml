@@ -5,12 +5,14 @@
     android:layout_height="match_parent"
     tools:context=".VideoPlayerActivity">
 
+    <!-- VideoView para mostrar el video -->
     <VideoView
         android:id="@+id/video_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerInParent="true" />
 
+     <!-- ImageButton para cerrar el reproductor de video -->
     <ImageButton
         android:id="@+id/close_button"
         android:layout_width="wrap_content"
