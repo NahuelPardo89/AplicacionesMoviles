@@ -1,5 +1,6 @@
 package com.example.ampamain.database.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -26,4 +27,7 @@ public interface ReservaDao {
 
     @Query("SELECT * FROM reserva WHERE idReserva = :id")
     Reserva getReservaById(long id);
+
+    @Query("SELECT * FROM Reserva WHERE UserId = :userId")
+    LiveData<List<Reserva>> getReservasByUser(String userId);
 }
