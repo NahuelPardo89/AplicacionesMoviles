@@ -41,9 +41,9 @@ public class MyApplication extends Application {
                 byte[] imageRutina1 = convertDrawableToByteArray(getContext(), R.drawable.torneofutbol);
                 byte[] imageRutina2 = convertDrawableToByteArray(getContext(), R.drawable.torneoninos);
                 byte[] imageRutina3 = convertDrawableToByteArray(getContext(), R.drawable.canchapaddle);
-                rutinaDao.insert(new Rutinas("Rutina 1", "Descripción de la rutina 1", /* Aquí va la imagen en formato byte[] */ null, "url_video_1"));
-                rutinaDao.insert(new Rutinas("Rutina 2", "Descripción de la rutina 2", /* Aquí va la imagen en formato byte[] */ null, "url_video_2"));
-                rutinaDao.insert(new Rutinas("Rutina 3", "Descripción de la rutina 3", /* Aquí va la imagen en formato byte[] */ null, "url_video_3"));
+                rutinaDao.insert(new Rutinas("Rutina Brazos", "Cómo conseguir resultados sorprendentes con series gigantes", null, "https://firebasestorage.googleapis.com/v0/b/ampa-api.appspot.com/o/rutinabrazos.mp4?alt=media&token=469a8615-61ea-4bef-901f-c15ba070dc0b"));
+                rutinaDao.insert(new Rutinas("Rutina Piernas y gluteos", " poderosa rutina para transformar tus piernas y glúteos",  null, "https://firebasestorage.googleapis.com/v0/b/ampa-api.appspot.com/o/rutinaPiernas.mp4?alt=media&token=61aad5e9-7a12-4a84-a544-13b5a2d5da2c"));
+                rutinaDao.insert(new Rutinas("Rutina Pecho", " rutina de ejercicios completa y efectiva para fortalecer y definir tu pecho, bíceps y tríceps",  null, "https://firebasestorage.googleapis.com/v0/b/ampa-api.appspot.com/o/rutinapecho.mp4?alt=media&token=af7606f1-c686-41e7-81bf-0c719417770d"));
                 // Inicializando db tabla Instalaciones
                 InstalacionDao instalacionDao = AppDatabase.getInstance(getContext()).instalacionDao();
 
