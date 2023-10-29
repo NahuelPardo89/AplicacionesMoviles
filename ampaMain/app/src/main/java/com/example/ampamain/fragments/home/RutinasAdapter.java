@@ -1,8 +1,9 @@
 package com.example.ampamain.fragments.home;
 
-
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,16 +17,17 @@ import com.example.ampamain.R;
 import com.example.ampamain.VideoPlayerActivity;
 import com.example.ampamain.modelos.Rutinas;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RutinasAdapter extends RecyclerView.Adapter<RutinasAdapter.RutinaViewHolder> {
 
-    private final List<Rutinas> rutinasList;
+    private List<Rutinas> rutinasList = new ArrayList<>();
     private final Context context;
 
     public RutinasAdapter(Context context, List<Rutinas> rutinasList) {
         this.context = context;
-        this.rutinasList = rutinasList;
+
     }
 
     @NonNull
@@ -39,26 +41,39 @@ public class RutinasAdapter extends RecyclerView.Adapter<RutinasAdapter.RutinaVi
     @Override
     public void onBindViewHolder(@NonNull RutinaViewHolder holder, int position) {
         Rutinas rutina = rutinasList.get(position);
-        holder.titleTextView.setText(rutina.getTitle());
-        holder.descriptionTextView.setText(rutina.getDescription());
+        holder.titleTextView.setText(rutina.getNombre());
+        holder.descriptionTextView.setText(rutina.getDescripcion());
 
-        // Cargar la imagen de previsualización
-        Glide.with(context).load(rutina.getPreviewImageUrl()).into(holder.previewImageView);
+        // Convertir byte[] a Bitmap y establecer en ImageView
+        byte[] image = rutina.getImgPreview();
+        if (image != null && image.length > 0) {
+            Bitmap bitmap = BitmapFactory.decodeByteArray(image, 0, image.length);
+            Glide.with(context).load(bitmap).into(holder.previewImageView);
+        } else {
+            Glide.with(context).load(R.drawable.gimnasio).into(holder.previewImageView);  // Cargar una imagen predeterminada si no hay imagen.
+        }
 
         // Configurar el escuchador del botón Reproducir
         holder.playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, VideoPlayerActivity.class);
-                intent.putExtra("videoUrl", rutina.getVideoUrl());
+                intent.putExtra("videoUrl", rutina.getVideourl());
                 context.startActivity(intent);
             }
         });
     }
 
+
     @Override
     public int getItemCount() {
         return rutinasList.size();
+    }
+
+    public void setRutinasList(List<Rutinas> newRutinasList) {
+        this.rutinasList.clear();
+        this.rutinasList.addAll(newRutinasList);
+        notifyDataSetChanged();
     }
 
     static class RutinaViewHolder extends RecyclerView.ViewHolder {

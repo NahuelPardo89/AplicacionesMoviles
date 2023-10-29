@@ -37,4 +37,13 @@
         android:name="com.example.ampamain.fragments.perfil.EditProfileFragment"
         android:label="Editar perfil"
         tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/nav_inscripcionTornoes"
+        android:name="com.example.ampamain.fragments.InscripcionTorneosFragment"
+        android:label="Mis Inscripciones"
+        tools:layout="@layout/fragment_inscripcion_torneos" />
+    <fragment
+        android:id="@+id/nav_reservasListFragment"
+        android:name="com.example.ampamain.fragments.ReservasListFragment"
+        android:label="Lista de Reservas" />
 </navigation>

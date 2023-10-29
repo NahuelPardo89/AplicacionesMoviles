@@ -6,69 +6,69 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.example.ampamain.R;
-import com.example.ampamain.modelos.UserProfile;
-import com.example.ampamain.fragments.perfil.PerfilViewModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.zxing.BarcodeFormat;
+import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
-import com.google.zxing.qrcode.QRCodeWriter;
 
-public class  CredencialFragment extends Fragment {
+public class CredencialFragment extends Fragment {
 
-    private PerfilViewModel perfilViewModel;
-    private TextView dniTextView, nameTextView, apellidoTextView, isActiveTextView;
-    private ImageView profileImage, qrCodeImage;
+    private TextView userUidTextView;
+    private TextView userNameTextView;
+    private ImageView userImageImageView;
+    private ImageView userQrCodeImageView;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_credencial, container, false);
 
-        perfilViewModel = new ViewModelProvider(this).get(PerfilViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_credencial, container, false);
+        userUidTextView = view.findViewById(R.id.user_uid);
+        userNameTextView = view.findViewById(R.id.user_name);
+        userImageImageView = view.findViewById(R.id.user_image);
+        userQrCodeImageView = view.findViewById(R.id.user_qr_code);
 
-        // Inicialización de los elementos de la vista
-        dniTextView = root.findViewById(R.id.dni_text);
-        nameTextView = root.findViewById(R.id.nombre_text);
-        apellidoTextView = root.findViewById(R.id.apellido_text);
-        isActiveTextView = root.findViewById(R.id.is_active_text);
-        profileImage = root.findViewById(R.id.profile_image);
-        qrCodeImage = root.findViewById(R.id.qr_code_image);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        if (user != null) {
 
-        // Observar los cambios en el perfil del usuario
-        perfilViewModel.getUserProfile().observe(getViewLifecycleOwner(), this::updateUI);
+            // Carga la imagen del usuario usando Glide
+            if (user.getPhotoUrl() != null) {
+                Glide.with(this)
+                        .load(user.getPhotoUrl())
+                        .into(userImageImageView);
+            } else {
+                // Establece una imagen por defecto si el usuario no tiene una imagen de perfil
+                userImageImageView.setImageResource(R.drawable.avatar);
+            }
+            userUidTextView.setText("UID: " + user.getUid());
+            userNameTextView.setText("Nombre: " + user.getDisplayName());
 
-        return root;
+            Bitmap qrCodeBitmap = generateQRCode(user.getUid());
+            userQrCodeImageView.setImageBitmap(qrCodeBitmap);
+        }
+
+        return view;
     }
 
-    private void updateUI(UserProfile userProfile) {
-        dniTextView.setText("DNI: " + userProfile.getDni().toString());
-        nameTextView.setText("Nombre: " + userProfile.getNombre());
-        apellidoTextView.setText("Apellido: " + userProfile.getApellido());
-        isActiveTextView.setText("Estado: " + (userProfile.isIsActive() ? "Activo" : "Inactivo"));
-        Glide.with(this)
-                .load(userProfile.getFotoUrl())
-                .into(profileImage);
-
-        // Generar y mostrar el código QR basado en el DNI
-        String dni = userProfile.getDni().toString();
-        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+    private Bitmap generateQRCode(String uid) {
+        MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
         try {
-            BitMatrix bitMatrix = qrCodeWriter.encode(dni, BarcodeFormat.QR_CODE, 200, 200);
+            BitMatrix bitMatrix = multiFormatWriter.encode(uid, BarcodeFormat.QR_CODE, 200, 200);
             Bitmap bitmap = Bitmap.createBitmap(200, 200, Bitmap.Config.RGB_565);
             for (int x = 0; x < 200; x++) {
                 for (int y = 0; y < 200; y++) {
                     bitmap.setPixel(x, y, bitMatrix.get(x, y) ? android.graphics.Color.BLACK : android.graphics.Color.WHITE);
                 }
             }
-            qrCodeImage.setImageBitmap(bitmap);
+            return bitmap;
         } catch (WriterException e) {
             e.printStackTrace();
         }
+        return null;
     }
 }

@@ -1,31 +1,38 @@
 package com.example.ampamain.modelos;
 
+import androidx.annotation.NonNull;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+@Entity(tableName = "Instalacion")
 public class Instalacion {
+    @PrimaryKey
+    @NonNull
+    private int idInstalacion;
     private String nombre;
     private String descripcion;
-    private int imagenRecurso;
-    private String costo;
+    private byte[] foto;
+    private int costo;
 
-    public Instalacion(String nombre, String descripcion, int imagenRecurso, String costo) {
+    public Instalacion(int idInstalacion, String nombre,String descripcion, byte[] foto, int costo) {
+        this.idInstalacion = idInstalacion;
         this.nombre = nombre;
         this.descripcion = descripcion;
-        this.imagenRecurso = imagenRecurso;
+        this.foto = foto;
         this.costo = costo;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
+    // Getters
+    public int getIdInstalacion() { return idInstalacion; }
+    public String getNombre() { return nombre; }
+    public String getDescripcion() { return descripcion; }
+    public byte[] getFoto() { return foto; }
+    public int getCosto() { return costo; }
 
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public int getImagenRecurso() {
-        return imagenRecurso;
-    }
-
-    public String getCosto() {
-        return costo;
-    }
+    // Setters
+    public void setIdInstalacion(int idInstalacion) { this.idInstalacion = idInstalacion; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setDescripcion(String descripcion) { this.descripcion = descripcion; }
+    public void setFoto(byte[] foto) { this.foto = foto; }
+    public void setCosto(int costo) { this.costo = costo; }
 }
