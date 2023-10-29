@@ -83,4 +83,6 @@
     <string name="dni">DNI</string>
     <string name="menu_email">Ingrese su email</string>
     <string name="menu_registrar">REGISTRAR</string>
+    <string name="boton_mensajeContacto">Enviar mensaje</string>
+    <string name="placeholder_mensajeContacto">Escriba aquí su mensaje</string>
 </resources>
