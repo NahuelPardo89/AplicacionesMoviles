@@ -28,18 +28,18 @@
 
         <item
             android:id="@+id/nav_inscripcionTornoes"
-            android:icon="@drawable/credential_icon"
-            android:title="Inscripciones a torneos" />
-
+            android:icon="@drawable/list_icon"
+            android:title="Mis Inscripciones" />
+        <item
+            android:id="@+id/nav_reservasListFragment"
+            android:title="Mis Reservas"
+            android:icon="@drawable/list_icon" />
 
         <item
             android:id="@+id/nav_logout"
             android:title="Cerrar sesión"
             android:icon="@drawable/iconlogout" />
 
-        <item
-            android:id="@+id/nav_reservasListFragment"
-            android:title="Mis Reservas"
-            android:icon="@drawable/iconlogout" />
+
     </group>
 </menu>
