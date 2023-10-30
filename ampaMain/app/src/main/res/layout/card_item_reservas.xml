@@ -27,7 +27,7 @@
             android:layout_marginTop="8dp"
             android:text="@string/NombreInstalacion"
             android:textStyle="bold"
-            android:textSize="16sp" />
+            android:textSize="22sp" />
 
         <TextView
             android:id="@+id/instalacion_descripcion"
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="@string/DescInstalacion"
-            android:textSize="14sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/instalacion_costo"
@@ -43,14 +43,15 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="@string/CostoInstalacion"
-            android:textSize="14sp" />
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/instalacion_reservar_boton"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="@string/btnReservar" />
+            android:text="@string/btnReservar"
+            android:textSize="25sp" />
 
     </LinearLayout>
 

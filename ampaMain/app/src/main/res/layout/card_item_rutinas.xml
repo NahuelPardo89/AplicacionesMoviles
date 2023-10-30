@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:text="@string/RutinaTitulo"
             android:textStyle="bold"
-            android:textSize="16sp"
+            android:textSize="22sp"
             android:layout_gravity="center_horizontal" />
 
         <TextView
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/RutinaDesc"
-            android:textSize="14sp"
+            android:textSize="18sp"
             android:layout_marginTop="4dp"
             android:layout_gravity="center_horizontal" />
 
@@ -42,10 +42,11 @@
 
         <Button
             android:id="@+id/rutina_play_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="@string/btnReproducir"
-            android:layout_marginTop="8dp" />
+            android:textSize="25sp" />
 
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

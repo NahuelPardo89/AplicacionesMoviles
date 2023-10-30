@@ -1,12 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.AmpaMain" parent="Theme.Material3.DynamicColors.Dark">
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">#1DA9E8</item>
         <item name="colorOnPrimary">@color/colorOnPrimary</item>
         <item name="colorSecondary">@color/colorSecondary</item>
         <item name="colorOnSecondary">@color/colorOnSecondary</item>
-        <item name="android:fontFamily">@font/worksansregular</item>
-        <!--  <item name="android:windowBackground">@drawable/imagbackground</item>-->
+        <item name="android:fontFamily">@font/robotomedium</item>
+        <item name="android:textSize">20sp</item>
+
+
+
     </style>
 
     <style name="Theme.AmpaMain" parent="Base.Theme.AmpaMain" />
@@ -16,9 +19,10 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+
     <style name="Theme.AmpaMain.AppBarOverlay" parent="ThemeOverlay.Material3.Dark.ActionBar">
         <item name="android:textColorPrimary">@color/colorOnPrimary</item>
-        <item name="android:background">@color/colorPrimary</item>
+
     </style>
 
     <style name="Theme.AmpaMain.PopupOverlay" parent="ThemeOverlay.Material3.Dark" />

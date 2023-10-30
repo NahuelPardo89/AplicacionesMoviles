@@ -21,27 +21,29 @@
             android:id="@+id/torneo_name_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-
-            tools:text="Nombre del Torneo" />
+            tools:text="Nombre del Torneo"
+            android:textSize="22sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/torneo_date_text_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:textSize="20sp"
 
             tools:text="Fecha del Torneo: 01/01/2023" />
 
         <Button
             android:id="@+id/delete_inscripcion_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
             android:layout_marginTop="12dp"
             android:text="Eliminar Inscripción"
+            android:textColor="@android:color/white"
 
-            android:textColor="@android:color/white" />
+            android:textSize="25sp" />
 
     </LinearLayout>
 

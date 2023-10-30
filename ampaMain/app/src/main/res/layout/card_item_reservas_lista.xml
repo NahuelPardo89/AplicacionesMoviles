@@ -17,7 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/NombreInstalacion"
-            android:textSize="16sp"
+            android:textSize="22sp"
             android:textStyle="bold" />
 
         <TextView
@@ -25,7 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Fecha"
-            android:textSize="14sp"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:layout_marginTop="8dp" />
 
         <TextView
@@ -33,17 +34,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/Hora"
-            android:textSize="14sp"
+            android:textSize="20sp"
+            android:textStyle="bold"
             android:layout_marginTop="8dp" />
 
         <Button
             android:id="@+id/cancel_reserva_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btnCancelReservar"
             android:layout_marginTop="16dp"
-
-        android:textColor="@android:color/white" />
+            android:text="@string/btnCancelReservar"
+            android:textSize="25sp"
+            android:textColor="@android:color/white" />
 
     </LinearLayout>
 
