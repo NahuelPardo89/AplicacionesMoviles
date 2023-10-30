@@ -24,6 +24,9 @@ https://www.youtube.com/watch?v=zuikR5gRtOU
 https://www.figma.com/proto/TzXOKJQBUz8xn4q5R05x47/AMPA-V2?type=design&node-id=86-1315&t=csAUOGlC63zOr5YL-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=45%3A361&mode=design
 ## APK
 Instalable APK: https://drive.google.com/file/d/14pYmkWUlVE6RZpOf_RQmy3V8q-bE_mky/view?usp=sharing
+
+## Documentación:
+Se encuentra en la Wiki del repositorio
 ## Características 🌟
 - Credencial Digital con QR: Tu acceso a las instalaciones en la palma de tu mano.
 - Torneos Próximos: No te pierdas ningún torneo, consulta fechas, horarios y más.
