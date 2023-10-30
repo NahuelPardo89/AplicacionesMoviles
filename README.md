@@ -12,6 +12,10 @@ SPRINT 1: Video Navegación entre Activity:  https://drive.google.com/file/d/1di
 # AMPA Complejo deportivo - App Android 📱
 La aplicación oficial para el complejo deportivo AMPA. Con tu credencial digital, accede a las instalaciones, mantente al día con los torneos próximos, sigue rutinas de ejercicios y reserva tus espacios favoritos.
 
+## Capturas de activities de la aplicación final
+
+https://docs.google.com/document/d/1umQ4NguS2kuWBuM-lJSYxBq8WlVJj2Vhcmye_0CjyRo/edit?usp=sharing
+
 ## AMPA - Accesibilidad (video demostrativo)
 
 https://www.youtube.com/watch?v=zuikR5gRtOU
