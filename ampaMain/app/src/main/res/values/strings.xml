@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ampaMain</string>
+    <string name="app_name">AMPA</string>
     <string name="logo"> LOGO AMPA COMPLEJO DEPORTIVO </string>
 
     <string name="btnLogin">Iniciar Sesión</string>
